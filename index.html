@@ -1,84 +1,50 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Serrutech – Liens</title>
-  <meta name="description" content="Serrutech – Accès rapide : site, Instagram, contact" />
+  <meta charset="UTF-8">
+  <title>Serrutech</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
-    :root{
-      --bg1:#0b0b0c;
-      --bg2:#141417;
-      --card:rgba(255,255,255,.06);
-      --stroke:rgba(255,255,255,.10);
-      --text:rgba(255,255,255,.92);
-      --muted:rgba(255,255,255,.68);
-      --btn:#ffffff;
-      --btnText:#0b0b0c;
-      --radius:18px;
-      --shadow: 0 18px 50px rgba(0,0,0,.45);
-    }
-
-    *{box-sizing:border-box}
     body{
       margin:0;
       min-height:100vh;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
       display:flex;
       align-items:center;
       justify-content:center;
-      padding:34px 18px;
-      color:var(--text);
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif;
       background:
-        radial-gradient(900px 500px at 50% -120px, rgba(255,255,255,.08), transparent 60%),
-        linear-gradient(180deg, var(--bg1), var(--bg2));
-    }
-
-    .wrap{
-      width:min(440px, 100%);
+        /* LOGO EN FOND (EN HAUT) */
+        url("logo.png") no-repeat center top 40px,
+        radial-gradient(900px 500px at 50% -120px, rgba(255,255,255,.05), transparent 60%),
+        linear-gradient(180deg,#0b0b0c,#141417);
+      background-size: 520px auto, auto, auto;
+      color:#fff;
     }
 
     .card{
-      border:1px solid var(--stroke);
-      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      background:rgba(255,255,255,.07);
+      border:1px solid rgba(255,255,255,.12);
       border-radius:24px;
-      padding:22px 18px 18px;
-      box-shadow:var(--shadow);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      text-align:center;
-    }
-
-    .logoBox{
-      width:92px;
-      height:92px;
-      margin:0 auto 12px;
-      border-radius:22px;
-      border:1px solid var(--stroke);
-      background:rgba(0,0,0,.18);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      overflow:hidden;
-    }
-
-    .logoBox img{
+      padding:28px 20px 22px;
       width:100%;
-      height:100%;
-      object-fit:contain;
-      display:block;
+      max-width:420px;
+      text-align:center;
+      backdrop-filter: blur(10px);
+      box-shadow:0 20px 60px rgba(0,0,0,.6);
+      margin-top:120px; /* laisse respirer le logo */
     }
 
     h1{
       margin:0;
       font-size:26px;
-      letter-spacing:1px;
+      letter-spacing:2px;
       font-weight:800;
     }
+
     .sub{
       margin:6px 0 18px;
-      color:var(--muted);
+      opacity:.7;
       font-size:14px;
     }
 
@@ -88,67 +54,49 @@
       justify-content:center;
       gap:10px;
       width:100%;
+      padding:16px;
+      margin:12px 0;
+      background:#fff;
+      color:#0b0b0c;
       text-decoration:none;
-      color:var(--btnText);
-      background:var(--btn);
-      padding:16px 14px;
       border-radius:16px;
       font-weight:800;
-      margin:12px 0;
-      transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
-      box-shadow: 0 10px 24px rgba(0,0,0,.28);
-      user-select:none;
-      -webkit-tap-highlight-color: transparent;
+      font-size:16px;
+      box-shadow:0 10px 24px rgba(0,0,0,.35);
+      transition:transform .15s ease;
     }
 
-    .btn:active{ transform: scale(.985); opacity:.95; }
-
-    .btn small{
-      font-weight:700;
-      opacity:.75;
+    .btn:hover{
+      transform:translateY(-2px);
     }
 
     .footer{
       margin-top:14px;
-      text-align:center;
-      color:rgba(255,255,255,.35);
       font-size:12px;
+      opacity:.4;
+    }
+
+    @media(max-width:480px){
+      body{
+        background-size: 360px auto, auto, auto;
+      }
     }
   </style>
 </head>
 
 <body>
-  <div class="wrap">
-    <div class="card">
 
-      <!-- IMPORTANT: le fichier doit s'appeler EXACTEMENT logo.png et être au même endroit que index.html -->
-      <div class="logoBox">
-        <img src="./logo.png" alt="Logo Serrutech"
-             onerror="this.style.display='none'; this.parentElement.style.display='none';" />
-      </div>
+  <div class="card">
+    <h1>SERRUTECH</h1>
+    <div class="sub">Artisan serrurier</div>
 
-      <h1>SERRUTECH</h1>
-      <div class="sub">Artisan serrurier</div>
-
-      <!-- Mets tes vrais liens ici -->
-      <a class="btn" href="https://www.instagram.com/TONINSTAGRAM" target="_blank" rel="noopener">
-        📸 Instagram
-      </a>
-
-      <a class="btn" href="https://www.tonsite.fr" target="_blank" rel="noopener">
-        🌐 Site internet
-      </a>
-
-      <a class="btn" href="mailto:theodor.favier@icloud.com">
-        ✉️ Email
-      </a>
-
-      <a class="btn" href="tel:+33782795833">
-        📞 Appeler
-      </a>
-    </div>
+    <a class="btn" href="https://www.instagram.com/TONINSTAGRAM" target="_blank">📸 Instagram</a>
+    <a class="btn" href="https://www.tonsite.fr" target="_blank">🌐 Site internet</a>
+    <a class="btn" href="mailto:theodor.favier@icloud.com">✉️ Email</a>
+    <a class="btn" href="tel:+33782795833">📞 Appeler</a>
 
     <div class="footer">© Serrutech</div>
   </div>
+
 </body>
 </html>
