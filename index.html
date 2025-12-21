@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serrutech – Liens</title>
+  <meta name="description" content="Serrutech – Accès rapide : site, Instagram, contact" />
+
+  <style>
+    :root{
+      --bg1:#0b0b0c;
+      --bg2:#141417;
+      --card:rgba(255,255,255,.06);
+      --stroke:rgba(255,255,255,.10);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.65);
+      --btn:#ffffff;
+      --btnText:#0b0b0c;
+      --shadow:0 18px 50px rgba(0,0,0,.45);
+      --radius:18px;
+    }
+
+    *{ box-sizing:border-box; }
+
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif;
+      background:
+        radial-gradient(900px 500px at 50% -100px, rgba(255,255,255,.08), transparent 60%),
+        linear-gradient(180deg,var(--bg1),var(--bg2));
+      color:var(--text);
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:34px 18px;
+    }
+
+    .wrap{
+      width:100%;
+      max-width:420px;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--stroke);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:26px 18px 20px;
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+      text-align:center;
+    }
+
+    .logoBox{
+      display:flex;
+      justify-content:center;
+      margin-bottom:14px;
+    }
+
+    .logoImg{
+      width:150px;
+      max-width:65%;
+      height:auto;
+      display:block;
+      border-radius:12px;
+      filter:drop-shadow(0 10px 18px rgba(0,0,0,.35));
+    }
+
+    .brand{
+      font-weight:800;
+      letter-spacing:2px;
+      font-size:20px;
+      margin:6px 0 2px;
+    }
+
+    .subtitle{
+      font-size:14px;
+      color:var(--muted);
+      margin-bottom:18px;
+    }
+
+    .buttons{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
+    .btn{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:14px;
+      border-radius:14px;
+      background:var(--btn);
+      color:var(--btnText);
+      text-decoration:none;
+      font-weight:700;
+      transition:transform .14s ease, box-shadow .14s ease, opacity .14s ease;
+      box-shadow:0 10px 22px rgba(0,0,0,.25);
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 16px 34px rgba(0,0,0,.35);
+    }
+
+    .btn:active{
+      transform:translateY(0);
+      opacity:.92;
+    }
+
+    .footer{
+      margin-top:14px;
+      font-size:12px;
+      color:rgba(255,255,255,.4);
+      text-align:center;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <section class="card">
+
+      <!-- LOGO EN HAUT -->
+      <div class="logoBox">
+        <img src="logo.png" alt="Logo Serrutech" class="logoImg">
+      </div>
+
+      <div class="brand">SERRUTECH</div>
+      <div class="subtitle">Artisan serrurier</div>
+
+      <div class="buttons">
+        <a class="btn" href="https://www.instagram.com/TONINSTAGRAM" target="_blank" rel="noopener">
+          📸 Instagram
+        </a>
+
+        <a class="btn" href="https://www.tonsite.fr" target="_blank" rel="noopener">
+          🌐 Site internet
+        </a>
+
+        <a class="btn" href="mailto:theodor.favier@icloud.com">
+          ✉️ Email
+        </a>
+
+        <a class="btn" href="tel:+33782795833">
+          📞 Appeler
+        </a>
+      </div>
+
+    </section>
+
+    <div class="footer">© Serrutech</div>
+  </main>
+</body>
+</html>
