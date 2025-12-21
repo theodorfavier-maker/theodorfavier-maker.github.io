@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Serrutech – Liens</title>
   <meta name="description" content="Serrutech – Accès rapide : site, Instagram, contact" />
 
@@ -20,14 +20,13 @@
       --radius:18px;
     }
 
-    *{ box-sizing:border-box; }
-
+    *{box-sizing:border-box}
     body{
       margin:0;
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif;
       background:
         radial-gradient(900px 500px at 50% -100px, rgba(255,255,255,.08), transparent 60%),
-        linear-gradient(180deg,var(--bg1),var(--bg2));
+        linear-gradient(180deg, var(--bg1), var(--bg2));
       color:var(--text);
       min-height:100vh;
       display:flex;
@@ -37,8 +36,7 @@
     }
 
     .wrap{
-      width:100%;
-      max-width:420px;
+      width:min(430px, 100%);
     }
 
     .card{
@@ -46,44 +44,41 @@
       border:1px solid var(--stroke);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
-      padding:26px 18px 20px;
-      backdrop-filter:blur(10px);
-      -webkit-backdrop-filter:blur(10px);
-      text-align:center;
-    }
-
-    .logoBox{
-      display:flex;
-      justify-content:center;
-      margin-bottom:14px;
-    }
-
-    .logoImg{
-      width:150px;
-      max-width:65%;
-      height:auto;
-      display:block;
-      border-radius:12px;
-      filter:drop-shadow(0 10px 18px rgba(0,0,0,.35));
+      padding:22px 18px 18px;
+      backdrop-filter: blur(10px);
     }
 
     .brand{
-      font-weight:800;
-      letter-spacing:2px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:10px;
+      margin-bottom:16px;
+      text-align:center;
+    }
+
+    .brand img{
+      width:96px;
+      height:96px;
+      object-fit:contain;
+      border-radius:16px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      padding:10px;
+    }
+
+    .title{
       font-size:20px;
-      margin:6px 0 2px;
+      letter-spacing:1.6px;
+      font-weight:800;
+      margin:0;
     }
 
     .subtitle{
-      font-size:14px;
+      margin:0;
+      margin-top:4px;
+      font-size:13px;
       color:var(--muted);
-      margin-bottom:18px;
-    }
-
-    .buttons{
-      display:flex;
-      flex-direction:column;
-      gap:12px;
     }
 
     .btn{
@@ -91,68 +86,74 @@
       align-items:center;
       justify-content:center;
       gap:10px;
-      padding:14px;
-      border-radius:14px;
+      width:100%;
+      padding:14px 14px;
+      margin:10px 0;
       background:var(--btn);
       color:var(--btnText);
       text-decoration:none;
+      border-radius:14px;
       font-weight:700;
-      transition:transform .14s ease, box-shadow .14s ease, opacity .14s ease;
-      box-shadow:0 10px 22px rgba(0,0,0,.25);
+      transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+      box-shadow: 0 10px 20px rgba(0,0,0,.25);
     }
 
     .btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 16px 34px rgba(0,0,0,.35);
-    }
-
-    .btn:active{
-      transform:translateY(0);
-      opacity:.92;
+      transform: translateY(-2px);
+      box-shadow: 0 16px 28px rgba(0,0,0,.35);
     }
 
     .footer{
+      text-align:center;
       margin-top:14px;
       font-size:12px;
-      color:rgba(255,255,255,.4);
+      color:rgba(255,255,255,.38);
+    }
+
+    .hint{
       text-align:center;
+      margin-top:10px;
+      font-size:12px;
+      color:rgba(255,255,255,.45);
+      line-height:1.35;
     }
   </style>
 </head>
 
 <body>
-  <main class="wrap">
-    <section class="card">
-
-      <!-- LOGO EN HAUT -->
-      <div class="logoBox">
-        <img src="logo.png" alt="Logo Serrutech" class="logoImg">
+  <div class="wrap">
+    <div class="card">
+      <div class="brand">
+        <!-- IMPORTANT :
+             Mets TON fichier à la racine du dépôt et nomme-le EXACTEMENT : logo.png
+             Le ?v=2 évite les caches quand tu remplaces l'image -->
+        <img src="logo.png?v=2" alt="Logo Serrutech" />
+        <div>
+          <h1 class="title">SERRUTECH</h1>
+          <p class="subtitle">Artisan serrurier</p>
+        </div>
       </div>
 
-      <div class="brand">SERRUTECH</div>
-      <div class="subtitle">Artisan serrurier</div>
+      <!-- ✅ Remplace TONINSTAGRAM + TON SITE -->
+      <a class="btn" href="https://www.instagram.com/TONINSTAGRAM" target="_blank" rel="noopener">
+        📸 Instagram
+      </a>
 
-      <div class="buttons">
-        <a class="btn" href="https://www.instagram.com/TONINSTAGRAM" target="_blank" rel="noopener">
-          📸 Instagram
-        </a>
+      <a class="btn" href="https://www.tonsite.fr" target="_blank" rel="noopener">
+        🌐 Site internet
+      </a>
 
-        <a class="btn" href="https://www.tonsite.fr" target="_blank" rel="noopener">
-          🌐 Site internet
-        </a>
+      <a class="btn" href="mailto:theodor.favier@icloud.com">
+        ✉️ Email
+      </a>
 
-        <a class="btn" href="mailto:theodor.favier@icloud.com">
-          ✉️ Email
-        </a>
+      <a class="btn" href="tel:+33782795833">
+        📞 Appeler
+      </a>
 
-        <a class="btn" href="tel:+33782795833">
-          📞 Appeler
-        </a>
-      </div>
-
-    </section>
-
-    <div class="footer">© Serrutech</div>
-  </main>
+      <div class="footer">© Serrutech</div>
+      <div class="hint">Si le logo ne s’affiche pas : vérifie que l’URL<br> /logo.png fonctionne et que le nom est EXACTEMENT <b>logo.png</b>.</div>
+    </div>
+  </div>
 </body>
 </html>
