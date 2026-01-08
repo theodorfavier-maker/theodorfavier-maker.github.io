@@ -4,12 +4,11 @@
   <meta charset="UTF-8">
   <title>Serrutech - Artisan Serrurier</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800&display=swap" rel="stylesheet">
 
   <style>
-    /* Reset pour éviter les décalages */
-    *{
-      box-sizing: border-box;
-    }
+    /* Correction du décalage à droite */
+    *{ box-sizing: border-box; }
 
     body{
       margin:0;
@@ -18,51 +17,42 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      /* FOND DEEP NIGHT : Plus de relief que le noir pur */
+      /* Ton fond dégradé Deep Night */
       background: linear-gradient(135deg, #0f0f11 0%, #1a1a1f 50%, #0f0f11 100%);
       color:#fff;
       padding: 20px;
-    }
-
-    /* Le logo en haut (facultatif si tu veux le laisser dans le fond du body comme avant) */
-    .logo-container {
-      position: absolute;
-      top: 40px;
-      text-align: center;
-      width: 100%;
-    }
-    .logo-img {
-      max-width: 300px;
-      height: auto;
     }
 
     .card{
       background:rgba(255,255,255,.07);
       border:1px solid rgba(255,255,255,.12);
       border-radius:24px;
-      padding:28px 20px 22px;
+      padding:35px 20px;
       width:100%;
       max-width:420px;
       text-align:center;
       backdrop-filter: blur(10px);
       box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
-      margin-top: 100px;
     }
 
-    h1{
-      margin:0;
-      font-size:26px;
-      letter-spacing:3px;
-      font-weight:800;
-      text-transform: uppercase;
-      color: #ffffff;
+    /* TAILLE DE TON LOGO SERRUTECH */
+    .logo-serrutech {
+      width: 100%;
+      max-width: 250px;
+      height: auto;
+      margin-bottom: 5px;
+      /* On inverse les couleurs car ton logo est noir sur fond blanc */
+      filter: invert(1); 
     }
 
     .sub{
-      margin:6px 0 22px;
-      opacity:.7;
-      font-size:14px;
-      letter-spacing: 1px;
+      font-family: 'Orbitron', sans-serif;
+      margin: 0 0 30px;
+      opacity:.8;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #ffffff;
     }
 
     .btn{
@@ -71,59 +61,42 @@
       justify-content:center;
       gap:12px;
       width:100%; 
-      padding:16px;
+      padding:18px;
       margin:12px 0;
       background:#ffffff;
       color:#0b0b0c;
       text-decoration:none;
-      border-radius:16px;
+      border-radius:18px;
       font-weight:800;
       font-size:16px;
-      box-shadow:0 10px 20px rgba(0,0,0,0.4);
+      box-shadow:0 8px 15px rgba(0,0,0,0.3);
       transition: all 0.2s ease;
     }
 
     .btn:hover{
       transform:translateY(-3px);
-      background:#f8f8f8;
-      box-shadow:0 15px 25px rgba(0,0,0,0.5);
-    }
-
-    /* Bouton d'appel un peu plus brillant pour l'urgence */
-    .btn-call {
-      border: 1px solid rgba(255,255,255,0.2);
+      background:#f0f0f0;
     }
 
     .footer{
-      margin-top:18px;
-      font-size:12px;
+      margin-top:25px;
+      font-size:10px;
       opacity:.3;
-      letter-spacing: 1px;
-    }
-
-    @media(max-width:480px){
-      .logo-img { max-width: 220px; }
-      .card { margin-top: 60px; }
+      font-family: 'Orbitron', sans-serif;
     }
   </style>
 </head>
 <body>
 
-  <div class="logo-container">
-    <img src="logo.png" alt="Serrutech Logo" class="logo-img">
-  </div>
-
   <div class="card">
-    <h1>SERRUTECH</h1>
+    <img src="logo.png" alt="Serrutech" class="logo-serrutech">
+    
     <div class="sub">Artisan serrurier</div>
 
-    <a class="btn btn-call" href="tel:+33782795833">📞 Appeler maintenant</a>
-
+    <a class="btn" href="tel:+33782795833">📞 Appeler maintenant</a>
     <a class="btn" href="mailto:theodor.favier@icloud.com">✉️ Envoyer un Email</a>
-
     <a class="btn" href="https://www.tonsite.fr" target="_blank">🌐 Notre Site Web</a>
-
-    <a class="btn" href="https://www.instagram.com/serrutech" target="_blank">📸 Suivre sur Instagram</a>
+    <a class="btn" href="https://www.instagram.com/serrutech" target="_blank">📸 Instagram</a>
 
     <div class="footer">© 2026 SERRUTECH</div>
   </div>
