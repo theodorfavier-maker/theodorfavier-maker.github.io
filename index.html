@@ -1,130 +1,105 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Serrutech – Liens</title>
-  <meta name="description" content="Serrutech – Accès rapide : site, Instagram, contact" />
+  <meta charset="UTF-8">
+  <title>Serrutech - Artisan Serrurier</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800&display=swap" rel="stylesheet">
 
   <style>
-    :root{
-      --bg1:#0b0b0c;
-      --bg2:#141417;
-      --card:rgba(255,255,255,.06);
-      --stroke:rgba(255,255,255,.10);
-      --text:rgba(255,255,255,.92);
-      --muted:rgba(255,255,255,.65);
-      --btn:#ffffff;
-      --btnText:#0b0b0c;
-      --shadow:0 18px 50px rgba(0,0,0,.45);
-      --radius:18px;
-    }
+    /* Correction du décalage à droite */
+    *{ box-sizing: border-box; }
 
-    *{ box-sizing:border-box; }
     body{
       margin:0;
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif;
-      background:
-        radial-gradient(900px 500px at 50% -100px, rgba(255,255,255,.08), transparent 60%),
-        linear-gradient(180deg, var(--bg1), var(--bg2));
-      color:var(--text);
       min-height:100vh;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
       display:flex;
       align-items:center;
       justify-content:center;
-      padding:34px 18px;
+      /* Ton fond dégradé Deep Night */
+      background: linear-gradient(135deg, #0f0f11 0%, #1a1a1f 50%, #0f0f11 100%);
+      color:#fff;
+      padding: 20px;
     }
 
     .card{
-      width:min(420px, 100%);
-      background:var(--card);
-      border:1px solid var(--stroke);
-      border-radius:calc(var(--radius) + 6px);
-      padding:22px 18px 18px;
-      box-shadow:var(--shadow);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      text-align:center;
-    }
-
-    .logoWrap{
-      width:88px;
-      height:88px;
-      margin:0 auto 10px;
-      border-radius:22px;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      overflow:hidden;
-    }
-
-    .logoWrap img{
+      background:rgba(255,255,255,.07);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:24px;
+      padding:35px 20px;
       width:100%;
-      height:100%;
-      object-fit:contain;
-      display:block;
+      max-width:420px;
+      text-align:center;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
     }
 
-    h1{
-      margin:8px 0 4px;
-      font-size:26px;
-      letter-spacing:.08em;
-      font-weight:800;
+    /* TAILLE DE TON LOGO SERRUTECH */
+    .logo-serrutech {
+      width: 100%;
+      max-width: 250px;
+      height: auto;
+      margin-bottom: 5px;
+      /* On inverse les couleurs car ton logo est noir sur fond blanc */
+      filter: invert(1); 
     }
+
     .sub{
-      margin:0 0 16px;
-      color:var(--muted);
-      font-size:14px;
+      font-family: 'Orbitron', sans-serif;
+      margin: 0 0 30px;
+      opacity:.8;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #ffffff;
     }
 
     .btn{
       display:flex;
       align-items:center;
       justify-content:center;
-      gap:10px;
-      width:100%;
-      padding:16px 14px;
+      gap:12px;
+      width:100%; 
+      padding:18px;
       margin:12px 0;
-      background:var(--btn);
-      color:var(--btnText);
+      background:#ffffff;
+      color:#0b0b0c;
       text-decoration:none;
-      border-radius:16px;
+      border-radius:18px;
       font-weight:800;
-      font-size:18px;
-      border:1px solid rgba(0,0,0,.08);
-      transition: transform .12s ease, box-shadow .12s ease;
+      font-size:16px;
+      box-shadow:0 8px 15px rgba(0,0,0,0.3);
+      transition: all 0.2s ease;
     }
+
     .btn:hover{
-      transform: translateY(-2px);
-      box-shadow: 0 14px 30px rgba(0,0,0,.35);
+      transform:translateY(-3px);
+      background:#f0f0f0;
     }
 
     .footer{
-      margin-top:14px;
-      font-size:12px;
-      color:rgba(255,255,255,.35);
+      margin-top:25px;
+      font-size:10px;
+      opacity:.3;
+      font-family: 'Orbitron', sans-serif;
     }
   </style>
 </head>
-
 <body>
-  <main class="card">
-    <!-- IMPORTANT : le fichier doit s'appeler EXACTEMENT "logo.png" et être à la racine -->
-    <div class="logoWrap">
-      <img src="./logo.png" alt="logo.png" />
-    </div>
 
-    <h1>SERRUTECH</h1>
-    <p class="sub">Artisan serrurier</p>
+  <div class="card">
+    <img src="logo.png" alt="Serrutech" class="logo-serrutech">
+    
+    <div class="sub">Artisan serrurier</div>
 
-    <a class="btn" href="https://www.instagram.com/TONINSTAGRAM" target="_blank" rel="noopener">📸 Instagram</a>
-    <a class="btn" href="https://TON_SITE" target="_blank" rel="noopener">🌐 Site internet</a>
-    <a class="btn" href="mailto:theodor.favier@icloud.com">✉️ Email</a>
-    <a class="btn" href="tel:+33782795833">📞 Appeler</a>
+    <a class="btn" href="tel:+33782795833">📞 Appeler maintenant</a>
+    <a class="btn" href="mailto:theodor.favier@icloud.com">✉️ Envoyer un Email</a>
+    <a class="btn" href="https://www.tonsite.fr" target="_blank">🌐 Notre Site Web</a>
+    <a class="btn" href="https://www.instagram.com/serrutech" target="_blank">📸 Instagram</a>
 
-    <div class="footer">© Serrutech</div>
-  </main>
+    <div class="footer">© 2026 SERRUTECH</div>
+  </div>
+
 </body>
 </html>
