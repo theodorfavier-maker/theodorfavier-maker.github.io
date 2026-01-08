@@ -6,6 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
+    /* 1. LA CORRECTION MAGIQUE POUR LE DÉCALAGE */
+    *{
+      box-sizing: border-box; /* Force le bouton à rester DANS la carte */
+    }
+
     body{
       margin:0;
       min-height:100vh;
@@ -14,7 +19,6 @@
       align-items:center;
       justify-content:center;
       background:
-        /* LOGO EN FOND (EN HAUT) */
         url("logo.png") no-repeat center top 40px,
         radial-gradient(900px 500px at 50% -120px, rgba(255,255,255,.05), transparent 60%),
         linear-gradient(180deg,#0b0b0c,#141417);
@@ -27,12 +31,12 @@
       border:1px solid rgba(255,255,255,.12);
       border-radius:24px;
       padding:28px 20px 22px;
-      width:100%;
+      width:90%; /* Utilise 90% sur mobile pour la marge */
       max-width:420px;
       text-align:center;
       backdrop-filter: blur(10px);
       box-shadow:0 20px 60px rgba(0,0,0,.6);
-      margin-top:120px; /* laisse respirer le logo */
+      margin-top:120px;
     }
 
     h1{
@@ -53,7 +57,7 @@
       align-items:center;
       justify-content:center;
       gap:10px;
-      width:100%;
+      width:100%; /* Grâce au border-box en haut, ça ne dépasse plus ! */
       padding:16px;
       margin:12px 0;
       background:#fff;
@@ -75,25 +79,18 @@
       font-size:12px;
       opacity:.4;
     }
-
-    @media(max-width:480px){
-      body{
-        background-size: 360px auto, auto, auto;
-      }
-    }
   </style>
 </head>
-
 <body>
 
   <div class="card">
     <h1>SERRUTECH</h1>
     <div class="sub">Artisan serrurier</div>
 
-    <a class="btn" href="https://www.instagram.com/TONINSTAGRAM" target="_blank">📸 Instagram</a>
-    <a class="btn" href="https://www.tonsite.fr" target="_blank">🌐 Site internet</a>
-    <a class="btn" href="mailto:theodor.favier@icloud.com">✉️ Email</a>
     <a class="btn" href="tel:+33782795833">📞 Appeler</a>
+    <a class="btn" href="mailto:theodor.favier@icloud.com">✉️ Email</a>
+    <a class="btn" href="https://www.tonsite.fr" target="_blank">🌐 Site internet</a>
+    <a class="btn" href="https://www.instagram.com/serrutech" target="_blank">📸 Instagram</a>
 
     <div class="footer">© Serrutech</div>
   </div>
