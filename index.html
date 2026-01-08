@@ -22,13 +22,19 @@
       backdrop-filter: blur(10px);
       box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
     }
+
+    /* TAILLE DU LOGO AGRANDIE */
     .logo-img {
-      width: 100%; max-width: 250px; height: auto; margin-bottom: 5px;
-      /* Inversion pour que ton logo noir devienne blanc sur fond sombre */
+      width: 100%; 
+      max-width: 320px; /* J'ai augmenté la taille ici */
+      height: auto; 
+      margin-bottom: 2px; /* Rapproche le logo du texte en dessous */
       filter: invert(1) brightness(1.2); 
     }
+
     .sub{
-      font-family: 'Orbitron', sans-serif; margin: 0 0 30px;
+      font-family: 'Orbitron', sans-serif; 
+      margin: 0 0 35px;
       opacity:.8; font-size: 13px; letter-spacing: 2px;
       text-transform: uppercase; color: #ffffff;
     }
@@ -46,7 +52,9 @@
 <body>
   <div class="card">
     <img src="logo.png" alt="Serrutech Logo" class="logo-img">
+    
     <div class="sub">Artisan serrurier</div>
+    
     <a class="btn" href="tel:+33782795833">📞 Appeler maintenant</a>
     <a class="btn" href="mailto:theodor.favier@icloud.com">✉️ Envoyer un Email</a>
     <a class="btn" href="https://serrutech.fr" target="_blank">🌐 Notre Site Web</a>
