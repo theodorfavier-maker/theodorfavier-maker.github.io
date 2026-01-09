@@ -2,13 +2,13 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>SERRUTECH | 66 Premium</title>
+  <title>SERRUTECH | 66</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --accent: #ffffff;
-      --glass: rgba(255, 255, 255, 0.06);
+      --glass: rgba(255, 255, 255, 0.08);
       --border: rgba(255, 255, 255, 0.15);
     }
 
@@ -23,133 +23,119 @@
       font-family: 'Inter', sans-serif;
       color: white;
       padding: 20px;
-      overflow-x: hidden;
     }
 
-    /* FOND DYNAMIQUE */
     .bg-image {
       position: fixed;
-      top: -10%; left: -10%; width: 120%; height: 120%;
+      top: 0; left: 0; width: 100%; height: 100%;
       background: url('fond.png') no-repeat center center;
       background-size: cover;
       opacity: 0.55;
       z-index: -1;
-      will-change: transform;
     }
 
-    /* CONTAINER */
     .container {
       width: 100%;
       max-width: 950px;
-      background: rgba(10, 10, 12, 0.75);
-      backdrop-filter: blur(30px);
-      -webkit-backdrop-filter: blur(30px);
+      background: rgba(10, 10, 12, 0.8);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
       border: 1px solid var(--border);
-      border-radius: 45px;
-      padding: 50px;
+      border-radius: 40px;
+      padding: 45px;
       display: flex;
-      gap: 50px;
-      box-shadow: 0 60px 120px rgba(0,0,0,0.9);
-      animation: reveal 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+      gap: 40px;
+      box-shadow: 0 50px 100px rgba(0,0,0,0.8);
     }
 
-    /* NAVIGATION GAUCHE */
     .left-panel { flex: 1; display: flex; flex-direction: column; justify-content: center; }
     
     .logo-main {
-      width: 260px;
+      width: 240px;
       filter: brightness(0) invert(1);
       margin-bottom: 8px;
     }
 
     .tagline {
       font-family: 'Orbitron', sans-serif;
-      font-size: 11px;
-      letter-spacing: 7px;
+      font-size: 10px;
+      letter-spacing: 6px;
       text-transform: uppercase;
       opacity: 0.5;
-      margin-bottom: 40px;
+      margin-bottom: 35px;
     }
 
-    .nav-links { display: flex; flex-direction: column; gap: 16px; }
+    .nav-links { display: flex; flex-direction: column; gap: 14px; }
 
     .btn {
-      padding: 20px 25px;
+      padding: 18px 22px;
       background: var(--glass);
       border: 1px solid var(--border);
-      border-radius: 20px;
+      border-radius: 18px;
       color: white;
       text-decoration: none;
       font-size: 14px;
       font-weight: 700;
       cursor: pointer;
-      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      transition: 0.3s;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    .btn:hover { background: rgba(255, 255, 255, 0.15); border-color: #fff; transform: translateX(8px); }
-    .btn:active { transform: scale(0.96); }
+    .btn:active { transform: scale(0.97); }
 
     .btn-call { background: #fff !important; color: #000 !important; }
 
-    /* PANNEAU DROIT */
     .right-panel {
       flex: 1.2;
       border-left: 1px solid var(--border);
-      padding-left: 50px;
+      padding-left: 40px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      min-height: 350px;
+      min-height: 320px;
     }
 
-    .info-box { display: none; animation: slideIn 0.5s forwards; }
+    .info-box { display: none; animation: fadeIn 0.4s forwards; }
     .info-box.active { display: block; }
 
     .info-title {
       font-family: 'Orbitron', sans-serif;
-      font-size: 26px;
-      margin-bottom: 25px;
-      background: linear-gradient(to right, #fff, #999);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      font-size: 24px;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
     }
 
-    .info-desc { font-size: 16px; line-height: 1.9; opacity: 0.75; margin-bottom: 40px; }
+    .info-desc { font-size: 16px; line-height: 1.8; opacity: 0.8; margin-bottom: 35px; }
 
     .cta-main {
       display: inline-block;
-      padding: 18px 45px;
+      padding: 16px 35px;
       background: #fff;
       color: #000;
-      border-radius: 15px;
+      border-radius: 14px;
       font-weight: 900;
       text-decoration: none;
-      transition: 0.3s;
       text-transform: uppercase;
       cursor: pointer;
+      text-align: center;
     }
 
-    /* ANIMATIONS */
-    @keyframes reveal { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes slideIn { from { opacity: 0; transform: translateX(15px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes fadeIn { from { opacity: 0; transform: translateX(10px); } to { opacity: 1; transform: translateX(0); } }
 
-    /* MOBILE */
     @media (max-width: 768px) {
       body { overflow-y: auto; align-items: flex-start; }
-      .container { flex-direction: column; padding: 40px 25px; margin-top: 20px; border-radius: 35px; }
-      .right-panel { border-left: none; border-top: 1px solid var(--border); padding: 35px 0 0 0; text-align: center; min-height: auto; }
+      .container { flex-direction: column; padding: 35px 20px; margin-top: 20px; }
+      .right-panel { border-left: none; border-top: 1px solid var(--border); padding-top: 30px; text-align: center; min-height: auto; }
       .left-panel { text-align: center; }
-      .logo-main { margin: 0 auto; width: 210px; }
-      .btn:hover { transform: none; }
+      .logo-main { margin: 0 auto; width: 200px; }
     }
   </style>
 </head>
-<body onmousemove="parallax(event)">
+<body>
 
-  <div class="bg-image" id="bg"></div>
+  <div class="bg-image"></div>
 
   <div class="container">
     <div class="left-panel">
@@ -159,8 +145,8 @@
       </div>
       
       <div class="nav-links">
-        <div class="btn btn-call" onclick="openTab('call')">Urgence 24/7 <span>📞</span></div>
-        <div class="btn" onclick="openTab('vcard')">Sauvegarder <span>👤</span></div>
+        <div class="btn btn-call" onclick="openTab('call')">Appeler maintenant <span>📞</span></div>
+        <div class="btn" onclick="openTab('vcard')">Enregistrer le contact <span>👤</span></div>
         <div class="btn" onclick="openTab('site')">Notre Site Web <span>🌐</span></div>
         <a href="https://instagram.com/serrutech" target="_blank" class="btn">Instagram <span>📸</span></a>
       </div>
@@ -168,20 +154,20 @@
 
     <div class="right-panel">
       <div id="call" class="info-box active">
-        <h2 class="info-title">DEPANNAGE 66</h2>
-        <p class="info-desc">Technicien expert pour toute ouverture de porte ou changement de serrure. Intervention rapide 24h/24.</p>
-        <a href="tel:+33782795833" class="cta-main">Lancer l'appel</a>
+        <h2 class="info-title">URGENCE 66</h2>
+        <p class="info-desc">Serrurier qualifié pour tous vos besoins : ouverture de porte, changement de cylindre et mise en sécurité après effraction.</p>
+        <a href="tel:+33782795833" class="cta-main">Appeler 24h/7</a>
       </div>
 
       <div id="vcard" class="info-box">
-        <h2 class="info-title">REPERTOIRE</h2>
-        <p class="info-desc">Cliquez ci-dessous pour ajouter SERRUTECH directement à vos contacts téléphoniques.</p>
-        <div class="cta-main" onclick="downloadVCard()">Enregistrer le contact</div>
+        <h2 class="info-title">MON TÉLÉPHONE</h2>
+        <p class="info-desc">Gardez nos coordonnées en sécurité. Appuyez sur le bouton pour m'ajouter à votre liste de contacts.</p>
+        <div class="cta-main" onclick="downloadVCard()">M'enregistrer</div>
       </div>
 
       <div id="site" class="info-box">
-        <h2 class="info-title">MAINTENANCE</h2>
-        <p class="info-desc">Plateforme en cours d'optimisation. Utilisez le bouton d'appel pour toute demande urgente.</p>
+        <h2 class="info-title">SITE WEB</h2>
+        <p class="info-desc">Notre nouvelle page est en préparation. Pour toute demande, merci de nous contacter par téléphone.</p>
         <div class="cta-main" onclick="openTab('call')">Contact Direct</div>
       </div>
     </div>
@@ -193,33 +179,27 @@
       document.getElementById(id).classList.add('active');
     }
 
-    function parallax(e) {
-      if (window.innerWidth > 768) {
-        let x = (window.innerWidth / 2 - e.pageX) / 50;
-        let y = (window.innerHeight / 2 - e.pageY) / 50;
-        document.getElementById('bg').style.transform = `translate(${x}px, ${y}px)`;
-      }
-    }
-
-    // FONCTION VCARD PRO (FIXED)
+    // FONCTION VCARD COMPATIBLE IPHONE
     function downloadVCard() {
-      const vcardData = "BEGIN:VCARD\n" +
-                        "VERSION:3.0\n" +
-                        "FN:SERRUTECH 66\n" +
-                        "ORG:Serrurerie Technologique;\n" +
-                        "TEL;TYPE=CELL,VOICE:+33782795833\n" +
-                        "EMAIL:theodor.favier@icloud.com\n" +
-                        "URL:https://serrutech.github.io\n" +
-                        "END:VCARD";
+      const vcardData = [
+        "BEGIN:VCARD",
+        "VERSION:3.0",
+        "FN:SERRUTECH 66",
+        "TEL;TYPE=CELL,VOICE:+33782795833",
+        "EMAIL:theodor.favier@icloud.com",
+        "URL:https://serrutech.github.io",
+        "END:VCARD"
+      ].join("\n");
       
-      const blob = new Blob([vcardData], { type: 'text/vcard' });
+      const blob = new Blob([vcardData], { type: 'text/vcard;charset=utf-8' });
       const url = window.URL.createObjectURL(blob);
-      const newLink = document.createElement('a');
-      newLink.href = url;
-      newLink.setAttribute('download', 'SERRUTECH.vcf');
-      document.body.appendChild(newLink);
-      newLink.click();
-      document.body.removeChild(newLink);
+      
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', 'Serrutech_66.vcf');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     }
   </script>
 
