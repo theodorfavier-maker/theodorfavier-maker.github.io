@@ -4,166 +4,146 @@
   <meta charset="UTF-8">
   <title>SERRUTECH | 66</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary: #ffffff;
-      --glass: rgba(255, 255, 255, 0.03);
-      --glass-hover: rgba(255, 255, 255, 0.08);
-      --border: rgba(255, 255, 255, 0.12);
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     
     body {
       min-height: 100vh;
-      background: #08080a;
+      background: #000;
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: 'Inter', sans-serif;
-      color: var(--primary);
-      overflow-x: hidden;
-    }
-
-    /* LOGO EN FOND DISCRET */
-    .bg-image {
-      position: fixed;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 140%; height: auto;
-      opacity: 0.15;
-      filter: blur(10px) grayscale(1);
-      z-index: -1;
-      pointer-events: none;
-    }
-
-    .container {
-      width: 92%;
-      max-width: 380px;
-      text-align: center;
-      padding: 40px 20px;
-      background: var(--glass);
-      backdrop-filter: blur(25px);
-      -webkit-backdrop-filter: blur(25px);
-      border: 1px solid var(--border);
-      border-radius: 45px;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-    }
-
-    /* LOGO DU HAUT (Taille Pro) */
-    .header-logo {
-      width: 85%;
-      margin: 0 auto 10px auto;
-      filter: drop-shadow(0 0 15px rgba(255,255,255,0.2));
-    }
-    .header-logo img { width: 100%; height: auto; filter: invert(1) brightness(2); }
-
-    .tagline {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 10px;
-      letter-spacing: 5px;
-      text-transform: uppercase;
-      margin-bottom: 35px;
-      opacity: 0.4;
-    }
-
-    /* BOUTONS */
-    .btn {
-      display: flex; align-items: center; justify-content: center;
-      width: 100%; padding: 18px; margin: 12px 0;
-      border-radius: 20px; font-weight: 600; font-size: 15px;
-      text-decoration: none; color: var(--primary);
-      background: var(--glass); border: 1px solid var(--border);
-      cursor: pointer; transition: 0.3s;
-    }
-
-    .btn-white { background: #fff; color: #000; border: none; font-weight: 800; }
-    .btn:hover { transform: translateY(-2px); background: var(--glass-hover); }
-    .btn-white:hover { background: #eee; }
-
-    /* SYSTÈME DE POP-UP (MODALES) */
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.8);
-      backdrop-filter: blur(10px);
-      z-index: 100;
-      align-items: center; justify-content: center;
+      color: white;
       padding: 20px;
     }
 
-    .modal-content {
-      background: #121214;
-      border: 1px solid var(--border);
-      padding: 30px;
-      border-radius: 35px;
-      max-width: 340px;
+    /* IMAGE DE FOND (Celle avec le reflet et le logo au centre) */
+    .background-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: url('fond.jpg') no-repeat center center;
+      background-size: cover;
+      opacity: 0.5;
+      z-index: -1;
+    }
+
+    .container {
       width: 100%;
+      max-width: 450px;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 30px;
+      padding: 30px 20px;
       text-align: center;
     }
 
-    .modal h3 { font-family: 'Orbitron', sans-serif; font-size: 16px; margin-bottom: 15px; letter-spacing: 2px; }
-    .modal p { font-size: 14px; opacity: 0.7; line-height: 1.6; margin-bottom: 25px; }
+    /* LOGO DU HAUT (Écriture seule) */
+    .top-logo {
+      width: 180px;
+      margin: 0 auto 10px auto;
+      display: block;
+      filter: brightness(2);
+    }
 
-    .footer { margin-top: 35px; font-family: 'Orbitron', sans-serif; font-size: 8px; opacity: 0.2; letter-spacing: 3px; }
+    .tagline {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 9px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      opacity: 0.5;
+      margin-bottom: 35px;
+    }
+
+    /* LISTE D'INFORMATIONS (Design de l'image) */
+    .info-list {
+      text-align: left;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.05);
+      margin-bottom: 15px;
+      padding: 15px;
+      border-radius: 18px;
+      text-decoration: none;
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: 0.3s;
+    }
+
+    .info-item:hover {
+      background: rgba(255, 255, 255, 0.12);
+      transform: translateX(5px);
+    }
+
+    .info-label {
+      font-weight: 800;
+      font-size: 14px;
+      min-width: 110px;
+      border-right: 1px solid rgba(255, 255, 255, 0.2);
+      margin-right: 15px;
+      text-transform: uppercase;
+    }
+
+    .info-desc {
+      font-size: 12px;
+      opacity: 0.7;
+      line-height: 1.4;
+    }
+
+    .btn-call {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .footer {
+      margin-top: 30px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 8px;
+      opacity: 0.3;
+      letter-spacing: 2px;
+    }
   </style>
 </head>
 <body>
 
-  <img src="logo.png" class="bg-image" alt="">
+  <div class="background-overlay"></div>
 
   <div class="container">
-    <div class="header-logo"><img src="logo.png" alt="Serrutech"></div>
+    <img src="logo-texte.png" class="top-logo" alt="Serrutech">
     <div class="tagline">Artisan Serrurier</div>
-    
-    <button onclick="openModal('call')" class="btn btn-white">Appeler maintenant</button>
-    <button onclick="openModal('mail')" class="btn">Envoyer un Email</button>
-    <button onclick="openModal('site')" class="btn">Notre Site Web</button>
-    <a href="https://www.instagram.com/serrutech" target="_blank" class="btn">Instagram</a>
+
+    <div class="info-list">
+      
+      <a href="tel:+33782795833" class="info-item btn-call">
+        <div class="info-label">Appeler</div>
+        <div class="info-desc">Disponible 24h/24 & 7j/7 pour toute urgence dans le 66.</div>
+      </a>
+
+      <a href="mailto:theodor.favier@icloud.com" class="info-item">
+        <div class="info-label">Email</div>
+        <div class="info-desc">Demande de devis gratuit. Réponse rapide sous 2h.</div>
+      </a>
+
+      <div class="info-item" style="cursor: default; opacity: 0.9;">
+        <div class="info-label">Site Web</div>
+        <div class="info-desc">Plateforme en cours d'optimisation (Maintenance).</div>
+      </div>
+
+      <a href="https://www.instagram.com/serrutech" target="_blank" class="info-item">
+        <div class="info-label">Instagram</div>
+        <div class="info-desc">Suivez nos dernières interventions et réalisations.</div>
+      </a>
+
+    </div>
 
     <div class="footer">© 2026 SERRUTECH</div>
   </div>
 
-  <div id="modal-call" class="modal">
-    <div class="modal-content">
-      <h3>DISPONIBILITÉ</h3>
-      <p>Nos techniciens sont disponibles <strong>24h/24 et 7j/7</strong> pour toute urgence ou dépannage dans les Pyrénées-Orientales.</p>
-      <a href="tel:+33782795833" class="btn btn-white">Lancer l'appel</a>
-      <button onclick="closeModals()" class="btn" style="border:none; font-size:12px; opacity:0.5;">Annuler</button>
-    </div>
-  </div>
-
-  <div id="modal-mail" class="modal">
-    <div class="modal-content">
-      <h3>CONTACT MAIL</h3>
-      <p>Pour vos demandes de devis ou questions non-urgentes. Nous répondons généralement en <strong>moins de 2 heures</strong>.</p>
-      <a href="mailto:theodor.favier@icloud.com" class="btn btn-white">Rédiger l'email</a>
-      <button onclick="closeModals()" class="btn" style="border:none; font-size:12px; opacity:0.5;">Annuler</button>
-    </div>
-  </div>
-
-  <div id="modal-site" class="modal">
-    <div class="modal-content">
-      <h3>SITE EN TRAVAUX</h3>
-      <p>Nous préparons une plateforme ultra-performante pour le 66. En attendant, toutes nos prestations sont accessibles par téléphone.</p>
-      <button onclick="closeModals()" class="btn btn-white">D'accord</button>
-    </div>
-  </div>
-
-  <script>
-    function openModal(id) {
-      document.getElementById('modal-' + id).style.display = 'flex';
-    }
-    function closeModals() {
-      const modals = document.querySelectorAll('.modal');
-      modals.forEach(m => m.style.display = 'none');
-    }
-    // Fermer si on clique à côté
-    window.onclick = function(event) {
-      if (event.target.className === 'modal') closeModals();
-    }
-  </script>
 </body>
 </html>
