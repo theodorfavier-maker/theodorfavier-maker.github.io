@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>SERRUTECH | 66</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     
@@ -16,134 +16,187 @@
       justify-content: center;
       font-family: 'Inter', sans-serif;
       color: white;
-      padding: 20px;
+      overflow: hidden;
     }
 
-    /* IMAGE DE FOND (Celle avec le reflet et le logo au centre) */
-    .background-overlay {
+    /* IMAGE DE FOND (Image avec le reflet) */
+    .bg-image {
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
       background: url('fond.jpg') no-repeat center center;
       background-size: cover;
-      opacity: 0.5;
+      filter: blur(5px) brightness(0.4);
       z-index: -1;
     }
 
     .container {
-      width: 100%;
-      max-width: 450px;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
+      width: 95%;
+      max-width: 800px; /* Plus large pour l'effet deux colonnes */
+      background: rgba(15, 15, 18, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 30px;
-      padding: 30px 20px;
-      text-align: center;
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr; /* Colonne gauche (boutons) et droite (infos) */
+      gap: 40px;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.8);
     }
 
-    /* LOGO DU HAUT (Écriture seule) */
-    .top-logo {
-      width: 180px;
-      margin: 0 auto 10px auto;
-      display: block;
+    /* Partie Gauche */
+    .header-section { text-align: left; }
+    
+    .logo-top {
+      width: 160px;
+      margin-bottom: 10px;
       filter: brightness(2);
+      display: block;
     }
 
     .tagline {
       font-family: 'Orbitron', sans-serif;
-      font-size: 9px;
+      font-size: 10px;
       letter-spacing: 4px;
       text-transform: uppercase;
       opacity: 0.5;
-      margin-bottom: 35px;
+      margin-bottom: 30px;
     }
 
-    /* LISTE D'INFORMATIONS (Design de l'image) */
-    .info-list {
-      text-align: left;
-    }
+    .nav-buttons { display: flex; flex-direction: column; gap: 12px; }
 
-    .info-item {
-      display: flex;
-      align-items: center;
+    .btn {
+      padding: 15px 20px;
       background: rgba(255, 255, 255, 0.05);
-      margin-bottom: 15px;
-      padding: 15px;
-      border-radius: 18px;
-      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
       color: white;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      transition: 0.3s;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.3s;
     }
 
-    .info-item:hover {
-      background: rgba(255, 255, 255, 0.12);
+    .btn:hover, .btn.active {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.4);
       transform: translateX(5px);
     }
 
-    .info-label {
+    /* Partie Droite (Contenu) */
+    .content-section {
+      border-left: 1px solid rgba(255, 255, 255, 0.1);
+      padding-left: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .info-box { display: none; animation: fadeIn 0.4s ease; }
+    .info-box.active { display: block; }
+
+    .info-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 18px;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .info-text {
+      font-size: 15px;
+      line-height: 1.7;
+      opacity: 0.8;
+      margin-bottom: 25px;
+    }
+
+    .action-link {
+      display: inline-block;
+      padding: 12px 25px;
+      background: white;
+      color: black;
+      text-decoration: none;
+      border-radius: 10px;
       font-weight: 800;
       font-size: 14px;
-      min-width: 110px;
-      border-right: 1px solid rgba(255, 255, 255, 0.2);
-      margin-right: 15px;
-      text-transform: uppercase;
     }
 
-    .info-desc {
-      font-size: 12px;
-      opacity: 0.7;
-      line-height: 1.4;
-    }
+    @keyframes fadeIn { from { opacity: 0; transform: translateX(10px); } to { opacity: 1; transform: translateX(0); } }
 
-    .btn-call {
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-    }
+    .footer-text { margin-top: 30px; font-size: 10px; opacity: 0.3; font-family: 'Orbitron'; }
 
-    .footer {
-      margin-top: 30px;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 8px;
-      opacity: 0.3;
-      letter-spacing: 2px;
+    /* Responsive mobile */
+    @media (max-width: 700px) {
+      .container { grid-template-columns: 1fr; padding: 30px 20px; }
+      .content-section { border-left: none; padding-left: 0; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); }
     }
   </style>
 </head>
 <body>
 
-  <div class="background-overlay"></div>
+  <div class="bg-image"></div>
 
   <div class="container">
-    <img src="logo-texte.png" class="top-logo" alt="Serrutech">
-    <div class="tagline">Artisan Serrurier</div>
-
-    <div class="info-list">
+    
+    <div class="header-section">
+      <img src="logo.png" class="logo-top" alt="Serrutech">
+      <div class="tagline">Artisan Serrurier</div>
       
-      <a href="tel:+33782795833" class="info-item btn-call">
-        <div class="info-label">Appeler</div>
-        <div class="info-desc">Disponible 24h/24 & 7j/7 pour toute urgence dans le 66.</div>
-      </a>
-
-      <a href="mailto:theodor.favier@icloud.com" class="info-item">
-        <div class="info-label">Email</div>
-        <div class="info-desc">Demande de devis gratuit. Réponse rapide sous 2h.</div>
-      </a>
-
-      <div class="info-item" style="cursor: default; opacity: 0.9;">
-        <div class="info-label">Site Web</div>
-        <div class="info-desc">Plateforme en cours d'optimisation (Maintenance).</div>
+      <div class="nav-buttons">
+        <div class="btn active" onclick="showTab('call')">Appeler maintenant</div>
+        <div class="btn" onclick="showTab('email')">Envoyer un Email</div>
+        <div class="btn" onclick="showTab('site')">Notre Site Web</div>
+        <a href="https://www.instagram.com/serrutech" target="_blank" class="btn">Instagram</a>
       </div>
-
-      <a href="https://www.instagram.com/serrutech" target="_blank" class="info-item">
-        <div class="info-label">Instagram</div>
-        <div class="info-desc">Suivez nos dernières interventions et réalisations.</div>
-      </a>
-
+      
+      <div class="footer-text">© 2026 SERRUTECH</div>
     </div>
 
-    <div class="footer">© 2026 SERRUTECH</div>
+    <div class="content-section">
+      
+      <div id="call" class="info-box active">
+        <h3 class="info-title">📞 DISPONIBILITÉ</h3>
+        <p class="info-text">
+          Besoin d'un dépannage immédiat ? Nos techniciens interviennent sur tout le 66 <strong>24h/24 et 7j/7</strong>.
+        </p>
+        <a href="tel:+33782795833" class="action-link">Lancer l'appel</a>
+      </div>
+
+      <div id="email" class="info-box">
+        <h3 class="info-title">📧 CONTACT MAIL</h3>
+        <p class="info-text">
+          Pour vos projets de serrurerie ou demandes de devis. Nous répondons à votre message en moins de <strong>2 heures</strong>.
+        </p>
+        <a href="mailto:theodor.favier@icloud.com" class="action-link">Envoyer l'Email</a>
+      </div>
+
+      <div id="site" class="info-box">
+        <h3 class="info-title">🛠️ MAINTENANCE</h3>
+        <p class="info-text">
+          Nous préparons un site internet ultra-performant. Pour l'instant, toutes les demandes passent par notre standard téléphonique.
+        </p>
+        <button onclick="showTab('call')" class="action-link" style="border:none; cursor:pointer;">Nous appeler</button>
+      </div>
+
+    </div>
   </div>
+
+  <script>
+    function showTab(id) {
+      // Masquer toutes les boites d'info
+      document.querySelectorAll('.info-box').forEach(box => box.classList.remove('active'));
+      // Désactiver tous les boutons
+      document.querySelectorAll('.btn').forEach(btn => btn.classList.remove('active'));
+      
+      // Activer l'élément cliqué
+      document.getElementById(id).classList.add('active');
+      event.currentTarget.classList.add('active');
+    }
+  </script>
 
 </body>
 </html>
