@@ -22,8 +22,8 @@
       justify-content: center;
       font-family: 'Inter', sans-serif;
       color: white;
-      padding: env(safe-area-inset-top) 20px env(safe-area-inset-bottom) 20px;
-      overflow: hidden;
+      padding: 20px;
+      overflow-x: hidden;
     }
 
     /* FOND DYNAMIQUE */
@@ -37,7 +37,7 @@
       will-change: transform;
     }
 
-    /* CONTAINER PRINCIPAL */
+    /* CONTAINER */
     .container {
       width: 100%;
       max-width: 950px;
@@ -53,7 +53,7 @@
       animation: reveal 1.2s cubic-bezier(0.19, 1, 0.22, 1);
     }
 
-    /* NAVIGATION */
+    /* NAVIGATION GAUCHE */
     .left-panel { flex: 1; display: flex; flex-direction: column; justify-content: center; }
     
     .logo-main {
@@ -73,7 +73,6 @@
 
     .nav-links { display: flex; flex-direction: column; gap: 16px; }
 
-    /* BOUTONS INTERACTIFS */
     .btn {
       padding: 20px 25px;
       background: var(--glass);
@@ -84,28 +83,18 @@
       font-size: 14px;
       font-weight: 700;
       cursor: pointer;
-      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      transform: translateZ(0);
     }
 
-    .btn:hover {
-      background: rgba(255, 255, 255, 0.15);
-      border-color: #fff;
-      transform: translateX(8px);
-    }
+    .btn:hover { background: rgba(255, 255, 255, 0.15); border-color: #fff; transform: translateX(8px); }
+    .btn:active { transform: scale(0.96); }
 
-    .btn:active { transform: scale(0.97); }
+    .btn-call { background: #fff !important; color: #000 !important; }
 
-    .btn-call {
-      background: #fff !important;
-      color: #000 !important;
-      box-shadow: 0 0 30px rgba(255,255,255,0.2);
-    }
-
-    /* DROITE : CONTENU */
+    /* PANNEAU DROIT */
     .right-panel {
       flex: 1.2;
       border-left: 1px solid var(--border);
@@ -116,7 +105,7 @@
       min-height: 350px;
     }
 
-    .info-box { display: none; animation: slideIn 0.6s cubic-bezier(0.165, 0.84, 0.44, 1); }
+    .info-box { display: none; animation: slideIn 0.5s forwards; }
     .info-box.active { display: block; }
 
     .info-title {
@@ -138,35 +127,23 @@
       border-radius: 15px;
       font-weight: 900;
       text-decoration: none;
-      transition: 0.4s;
+      transition: 0.3s;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      cursor: pointer;
     }
 
     /* ANIMATIONS */
-    @keyframes reveal { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes slideIn { from { opacity: 0; transform: translateX(20px); filter: blur(10px); } to { opacity: 1; transform: translateX(0); filter: blur(0); } }
+    @keyframes reveal { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes slideIn { from { opacity: 0; transform: translateX(15px); } to { opacity: 1; transform: translateX(0); } }
 
-    /* RESPONSIVE SMARTPHONE (LE PLUS IMPORTANT) */
+    /* MOBILE */
     @media (max-width: 768px) {
       body { overflow-y: auto; align-items: flex-start; }
-      .container { 
-        flex-direction: column; 
-        padding: 40px 25px; 
-        margin: 20px 0;
-        border-radius: 35px;
-        gap: 30px;
-      }
-      .right-panel { 
-        border-left: none; 
-        border-top: 1px solid var(--border); 
-        padding: 35px 0 0 0; 
-        text-align: center;
-        min-height: auto;
-      }
+      .container { flex-direction: column; padding: 40px 25px; margin-top: 20px; border-radius: 35px; }
+      .right-panel { border-left: none; border-top: 1px solid var(--border); padding: 35px 0 0 0; text-align: center; min-height: auto; }
       .left-panel { text-align: center; }
       .logo-main { margin: 0 auto; width: 210px; }
-      .btn:hover { transform: none; } /* Désactive le décalage sur mobile pour éviter les bugs */
+      .btn:hover { transform: none; }
     }
   </style>
 </head>
@@ -183,7 +160,7 @@
       
       <div class="nav-links">
         <div class="btn btn-call" onclick="openTab('call')">Urgence 24/7 <span>📞</span></div>
-        <div class="btn" onclick="openTab('vcard')">Ajouter le contact <span>👤</span></div>
+        <div class="btn" onclick="openTab('vcard')">Sauvegarder <span>👤</span></div>
         <div class="btn" onclick="openTab('site')">Notre Site Web <span>🌐</span></div>
         <a href="https://instagram.com/serrutech" target="_blank" class="btn">Instagram <span>📸</span></a>
       </div>
@@ -191,21 +168,21 @@
 
     <div class="right-panel">
       <div id="call" class="info-box active">
-        <h2 class="info-title">URGENCE 66</h2>
-        <p class="info-desc">Dépannage immédiat pour toutes vos serrures. Intervention rapide et tarifs garantis avant travaux.</p>
-        <a href="tel:+33782795833" class="cta-main">Appeler le technicien</a>
+        <h2 class="info-title">DEPANNAGE 66</h2>
+        <p class="info-desc">Technicien expert pour toute ouverture de porte ou changement de serrure. Intervention rapide 24h/24.</p>
+        <a href="tel:+33782795833" class="cta-main">Lancer l'appel</a>
       </div>
 
       <div id="vcard" class="info-box">
-        <h2 class="info-title">SAUVEGARDER</h2>
-        <p class="info-desc">Enregistrez nos coordonnées pour nous avoir sous la main lors de votre prochaine urgence.</p>
-        <a href="#" class="cta-main">Ajouter au répertoire</a>
+        <h2 class="info-title">REPERTOIRE</h2>
+        <p class="info-desc">Cliquez ci-dessous pour ajouter SERRUTECH directement à vos contacts téléphoniques.</p>
+        <div class="cta-main" onclick="downloadVCard()">Enregistrer le contact</div>
       </div>
 
       <div id="site" class="info-box">
-        <h2 class="info-title">WEB PRO</h2>
-        <p class="info-desc">Notre nouveau site est en cours de déploiement. Profitez d'une interface de devis en ligne très bientôt.</p>
-        <button onclick="openTab('call')" class="cta-main" style="border:none; cursor:pointer;">Contact Direct</button>
+        <h2 class="info-title">MAINTENANCE</h2>
+        <p class="info-desc">Plateforme en cours d'optimisation. Utilisez le bouton d'appel pour toute demande urgente.</p>
+        <div class="cta-main" onclick="openTab('call')">Contact Direct</div>
       </div>
     </div>
   </div>
@@ -218,21 +195,31 @@
 
     function parallax(e) {
       if (window.innerWidth > 768) {
-        let x = (window.innerWidth / 2 - e.pageX) / 45;
-        let y = (window.innerHeight / 2 - e.pageY) / 45;
+        let x = (window.innerWidth / 2 - e.pageX) / 50;
+        let y = (window.innerHeight / 2 - e.pageY) / 50;
         document.getElementById('bg').style.transform = `translate(${x}px, ${y}px)`;
       }
     }
 
-    // Effet parallaxe mobile via inclinaison (Gyromètre)
-    if (window.DeviceOrientationEvent) {
-      window.addEventListener('deviceorientation', function(e) {
-        if (window.innerWidth <= 768) {
-          let x = e.gamma / 2; // Inclinaison gauche/droite
-          let y = e.beta / 2;  // Inclinaison avant/arrière
-          document.getElementById('bg').style.transform = `translate(${x}px, ${y}px)`;
-        }
-      });
+    // FONCTION VCARD PRO (FIXED)
+    function downloadVCard() {
+      const vcardData = "BEGIN:VCARD\n" +
+                        "VERSION:3.0\n" +
+                        "FN:SERRUTECH 66\n" +
+                        "ORG:Serrurerie Technologique;\n" +
+                        "TEL;TYPE=CELL,VOICE:+33782795833\n" +
+                        "EMAIL:theodor.favier@icloud.com\n" +
+                        "URL:https://serrutech.github.io\n" +
+                        "END:VCARD";
+      
+      const blob = new Blob([vcardData], { type: 'text/vcard' });
+      const url = window.URL.createObjectURL(blob);
+      const newLink = document.createElement('a');
+      newLink.href = url;
+      newLink.setAttribute('download', 'SERRUTECH.vcf');
+      document.body.appendChild(newLink);
+      newLink.click();
+      document.body.removeChild(newLink);
     }
   </script>
 
