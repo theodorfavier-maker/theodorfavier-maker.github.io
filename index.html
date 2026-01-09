@@ -17,22 +17,22 @@
     }
 
     .container {
-      width: 100%; max-width: 380px; /* Largeur standard pro */
+      width: 100%; max-width: 350px; /* Réduit de 380px à 350px */
       background: rgba(255, 255, 255, 0.04);
       backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 35px; padding: 40px 25px;
+      border-radius: 35px; padding: 35px 25px;
       text-align: center; box-shadow: 0 40px 80px rgba(0,0,0,0.8);
     }
 
-    /* LOGO : Dimensions Professionnelles */
+    /* LOGO : Taille Pro ajustée */
     .logo-wrap {
-      width: 100%;
-      margin-bottom: 5px;
+      width: 90%; /* Un peu plus petit pour laisser de l'air */
+      margin: 0 auto 5px auto;
     }
     
     .logo-img { 
-      width: 100%; /* S'adapte parfaitement à la largeur du texte */
+      width: 100%; 
       height: auto; 
       filter: invert(1) brightness(2); 
       display: block; 
@@ -40,14 +40,14 @@
 
     .tagline {
       font-family: 'Orbitron', sans-serif; font-weight: 900;
-      font-size: 10px; letter-spacing: 5px; text-transform: uppercase;
-      opacity: 0.4; margin-bottom: 40px;
+      font-size: 9px; letter-spacing: 5px; text-transform: uppercase;
+      opacity: 0.4; margin-bottom: 35px;
     }
 
     .btn {
       display: flex; align-items: center; justify-content: center;
-      width: 100%; padding: 18px; margin: 12px 0;
-      border-radius: 18px; font-weight: 700; font-size: 15px;
+      width: 100%; padding: 16px; margin: 10px 0;
+      border-radius: 16px; font-weight: 700; font-size: 14px;
       text-decoration: none; border: none; cursor: pointer;
       transition: all 0.2s ease;
     }
@@ -57,9 +57,9 @@
     .btn:hover { transform: translateY(-2px); filter: brightness(0.9); }
 
     #maintenance-view { display: none; }
-    .m-title { font-family: 'Orbitron', sans-serif; font-size: 18px; letter-spacing: 2px; margin-bottom: 15px; }
+    .m-title { font-family: 'Orbitron', sans-serif; font-size: 16px; letter-spacing: 2px; margin-bottom: 15px; }
 
-    .footer { margin-top: 30px; font-family: 'Orbitron', sans-serif; font-size: 8px; letter-spacing: 3px; opacity: 0.15; }
+    .footer { margin-top: 25px; font-family: 'Orbitron', sans-serif; font-size: 8px; letter-spacing: 3px; opacity: 0.15; }
   </style>
 </head>
 <body>
@@ -80,14 +80,14 @@
 
   <div id="maintenance-view" class="container">
     <h2 class="m-title">MAINTENANCE</h2>
-    <p style="opacity: 0.7; font-size: 14px; line-height: 1.6; margin-bottom: 30px;">
-      Notre site web est en cours de mise à jour pour mieux vous servir.<br><br>
+    <p style="opacity: 0.7; font-size: 13px; line-height: 1.6; margin-bottom: 25px;">
+      Notre site web est en cours de mise à jour.<br><br>
       Besoin d'un serrurier ?
     </p>
     
     <a href="tel:+33782795833" class="btn btn-white">Appeler maintenant</a>
     
-    <button onclick="showM(false)" style="background:none; border:none; color:rgba(255,255,255,0.4); text-decoration:underline; font-size: 10px; cursor: pointer; margin-top: 25px; font-family:'Orbitron';">RETOUR</button>
+    <button onclick="showM(false)" style="background:none; border:none; color:rgba(255,255,255,0.4); text-decoration:underline; font-size: 10px; cursor: pointer; margin-top: 20px; font-family:'Orbitron';">RETOUR</button>
   </div>
 
   <script>
