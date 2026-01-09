@@ -5,6 +5,13 @@
   <title>SERRUTECH | 66</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style><!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>SERRUTECH | 66</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     
@@ -15,9 +22,139 @@
       align-items: center;
       justify-content: center;
       font-family: 'Inter', sans-serif;
-      color: white;
       overflow: hidden;
     }
+
+    /* IMAGE DE FOND (LOGO FLOU) */
+    .bg-logo {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 130%; 
+      height: auto;
+      opacity: 0.35; 
+      filter: blur(8px); 
+      z-index: -1;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 360px;
+      padding: 30px;
+      text-align: center;
+      z-index: 10;
+    }
+
+    /* NOUVEAU LOGO TEXTE (AU-DESSUS) */
+    .logo-header {
+      width: 100%;
+      max-width: 220px;
+      margin: 0 auto 10px auto;
+      display: block;
+      filter: brightness(2); /* Pour qu'il soit bien blanc */
+    }
+
+    .info-header {
+      margin-bottom: 35px;
+    }
+
+    .tagline {
+      font-family: 'Orbitron', sans-serif;
+      color: #fff;
+      font-size: 11px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      opacity: 0.6;
+    }
+
+    /* BOUTONS STYLE "GLASS" */
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 18px;
+      margin: 15px 0;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 18px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateY(-2px);
+    }
+
+    /* BOUTON APPEL BLANC */
+    .btn-call {
+      background: #fff;
+      color: #000;
+      border: none;
+    }
+
+    .btn-call:hover {
+      background: #eee;
+      color: #000;
+    }
+
+    #maintenance-view { display: none; }
+
+    .footer {
+      margin-top: 40px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 8px;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 3px;
+    }
+  </style>
+</head>
+<body>
+
+  <img src="logo.png" class="bg-logo" alt="">
+
+  <div id="main-view" class="container">
+    
+    <img src="logo-texte.png" class="logo-header" alt="Serrutech">
+    
+    <div class="info-header">
+      <div class="tagline">Artisan Serrurier</div>
+    </div>
+
+    <a href="tel:+33782795833" class="btn btn-call">Appeler maintenant</a>
+    <a href="mailto:theodor.favier@icloud.com" class="btn">Envoyer un Email</a>
+    <button onclick="toggle(true)" class="btn">Notre Site Web</button>
+    <a href="https://www.instagram.com/serrutech" target="_blank" class="btn">Instagram</a>
+
+    <div class="footer">© 2026 SERRUTECH</div>
+  </div>
+
+  <div id="maintenance-view" class="container">
+    <img src="logo-texte.png" class="logo-header" style="max-width: 150px; opacity: 0.5;" alt="">
+    <h2 style="color:#fff; font-family:'Orbitron'; font-size:16px; margin: 20px 0; letter-spacing: 2px;">MAINTENANCE</h2>
+    <p style="color:rgba(255,255,255,0.6); font-size:14px; margin-bottom:30px; line-height:1.6;">
+      Nouveau site en préparation pour le 66.<br>Besoin d'un dépannage immédiat ?
+    </p>
+    <a href="tel:+33782795833" class="btn btn-call">Appeler maintenant</a>
+    <button onclick="toggle(false)" style="background:none; border:none; color:rgba(255,255,255,0.4); text-decoration:underline; cursor:pointer; margin-top:20px; font-size:11px; font-family:'Orbitron';">Retour</button>
+  </div>
+
+  <script>
+    function toggle(showMaint) {
+      document.getElementById('main-view').style.display = showMaint ? 'none' : 'block';
+      document.getElementById('maintenance-view').style.display = showMaint ? 'block' : 'none';
+    }
+  </script>
+
+</body>
+</html>
 
     /* IMAGE DE FOND (Image avec le reflet) */
     .bg-image {
