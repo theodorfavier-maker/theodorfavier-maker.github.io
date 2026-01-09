@@ -13,30 +13,26 @@
       min-height: 100vh; background: #050505;
       background-image: radial-gradient(circle at 50% -20%, #222226 0%, #050505 80%);
       display: flex; align-items: center; justify-content: center;
-      font-family: 'Inter', sans-serif; color: var(--accent); padding: 15px;
-      overflow: hidden;
+      font-family: 'Inter', sans-serif; color: var(--accent); padding: 20px;
     }
 
     .container {
-      width: 100%; max-width: 400px;
+      width: 100%; max-width: 380px; /* Largeur standard pro */
       background: rgba(255, 255, 255, 0.04);
-      backdrop-filter: blur(40px); -webkit-backdrop-filter: blur(40px);
+      backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 40px; padding: 40px 20px;
-      text-align: center; box-shadow: 0 50px 100px rgba(0,0,0,0.9);
-      position: relative; z-index: 10;
+      border-radius: 35px; padding: 40px 25px;
+      text-align: center; box-shadow: 0 40px 80px rgba(0,0,0,0.8);
     }
 
-    /* LOGO : Grand mais contenu dans la carte */
+    /* LOGO : Dimensions Professionnelles */
     .logo-wrap {
       width: 100%;
-      margin-bottom: 10px;
-      filter: drop-shadow(0 0 15px rgba(255,255,255,0.2));
+      margin-bottom: 5px;
     }
     
     .logo-img { 
-      width: 120%; /* Légèrement plus large que le texte */
-      margin-left: -10%;
+      width: 100%; /* S'adapte parfaitement à la largeur du texte */
       height: auto; 
       filter: invert(1) brightness(2); 
       display: block; 
@@ -44,27 +40,26 @@
 
     .tagline {
       font-family: 'Orbitron', sans-serif; font-weight: 900;
-      font-size: 10px; letter-spacing: 6px; text-transform: uppercase;
-      opacity: 0.5; margin-bottom: 40px;
+      font-size: 10px; letter-spacing: 5px; text-transform: uppercase;
+      opacity: 0.4; margin-bottom: 40px;
     }
 
     .btn {
       display: flex; align-items: center; justify-content: center;
-      width: 100%; padding: 20px; margin: 12px 0;
-      border-radius: 20px; font-weight: 800; font-size: 16px;
+      width: 100%; padding: 18px; margin: 12px 0;
+      border-radius: 18px; font-weight: 700; font-size: 15px;
       text-decoration: none; border: none; cursor: pointer;
       transition: all 0.2s ease;
     }
 
     .btn-white { background: #ffffff; color: #000000; }
-    .btn-dark { background: rgba(255,255,255,0.08); color: #ffffff; border: 1px solid rgba(255,255,255,0.1); }
-    .btn:hover { transform: translateY(-2px); }
+    .btn-dark { background: rgba(255,255,255,0.06); color: #ffffff; border: 1px solid rgba(255,255,255,0.1); }
+    .btn:hover { transform: translateY(-2px); filter: brightness(0.9); }
 
-    /* VUE MAINTENANCE SANS JAUNE */
     #maintenance-view { display: none; }
-    .m-title { font-family: 'Orbitron', sans-serif; font-size: 20px; letter-spacing: 3px; margin-bottom: 20px; }
+    .m-title { font-family: 'Orbitron', sans-serif; font-size: 18px; letter-spacing: 2px; margin-bottom: 15px; }
 
-    .footer { margin-top: 30px; font-family: 'Orbitron', sans-serif; font-size: 8px; letter-spacing: 4px; opacity: 0.2; }
+    .footer { margin-top: 30px; font-family: 'Orbitron', sans-serif; font-size: 8px; letter-spacing: 3px; opacity: 0.15; }
   </style>
 </head>
 <body>
@@ -86,13 +81,13 @@
   <div id="maintenance-view" class="container">
     <h2 class="m-title">MAINTENANCE</h2>
     <p style="opacity: 0.7; font-size: 14px; line-height: 1.6; margin-bottom: 30px;">
-      Site en cours de création pour le 66.<br><br>
+      Notre site web est en cours de mise à jour pour mieux vous servir.<br><br>
       Besoin d'un serrurier ?
     </p>
     
     <a href="tel:+33782795833" class="btn btn-white">Appeler maintenant</a>
     
-    <button onclick="showM(false)" style="background:none; border:none; color:rgba(255,255,255,0.4); text-decoration:underline; font-size: 11px; cursor: pointer; margin-top: 25px; font-family:'Orbitron';">RETOUR</button>
+    <button onclick="showM(false)" style="background:none; border:none; color:rgba(255,255,255,0.4); text-decoration:underline; font-size: 10px; cursor: pointer; margin-top: 25px; font-family:'Orbitron';">RETOUR</button>
   </div>
 
   <script>
