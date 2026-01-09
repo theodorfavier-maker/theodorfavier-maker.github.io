@@ -3,10 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <title>SERRUTECH | 66 Premium</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --accent: #ffffff;
+      --glass: rgba(255, 255, 255, 0.06);
+      --border: rgba(255, 255, 255, 0.15);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
     
     body {
       min-height: 100vh;
@@ -16,115 +22,219 @@
       justify-content: center;
       font-family: 'Inter', sans-serif;
       color: white;
-      padding: 15px;
+      padding: env(safe-area-inset-top) 20px env(safe-area-inset-bottom) 20px;
       overflow: hidden;
     }
 
+    /* FOND DYNAMIQUE */
     .bg-image {
       position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
+      top: -10%; left: -10%; width: 120%; height: 120%;
       background: url('fond.png') no-repeat center center;
       background-size: cover;
-      opacity: 0.6;
+      opacity: 0.55;
       z-index: -1;
-      transition: transform 0.1s ease-out; /* Pour effet parallaxe futur */
+      will-change: transform;
     }
 
+    /* CONTAINER PRINCIPAL */
     .container {
       width: 100%;
-      max-width: 850px;
+      max-width: 950px;
       background: rgba(10, 10, 12, 0.75);
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 35px;
-      padding: 40px;
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      border: 1px solid var(--border);
+      border-radius: 45px;
+      padding: 50px;
       display: flex;
-      flex-direction: row;
-      gap: 30px;
-      box-shadow: 0 40px 100px rgba(0,0,0,0.8);
-      animation: containerAppear 0.8s ease-out;
+      gap: 50px;
+      box-shadow: 0 60px 120px rgba(0,0,0,0.9);
+      animation: reveal 1.2s cubic-bezier(0.19, 1, 0.22, 1);
     }
 
-    .left-panel { flex: 1; text-align: left; }
+    /* NAVIGATION */
+    .left-panel { flex: 1; display: flex; flex-direction: column; justify-content: center; }
     
     .logo-main {
-      width: 220px;
-      filter: brightness(0) invert(1); 
-      margin-bottom: 15px;
-      animation: logoFade 1.2s ease;
+      width: 260px;
+      filter: brightness(0) invert(1);
+      margin-bottom: 8px;
     }
 
-    .nav-links { display: flex; flex-direction: column; gap: 12px; }
+    .tagline {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 11px;
+      letter-spacing: 7px;
+      text-transform: uppercase;
+      opacity: 0.5;
+      margin-bottom: 40px;
+    }
 
-    /* Animation d'entrée des boutons */
+    .nav-links { display: flex; flex-direction: column; gap: 16px; }
+
+    /* BOUTONS INTERACTIFS */
     .btn {
-      padding: 18px 20px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 15px;
+      padding: 20px 25px;
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: 20px;
       color: white;
       text-decoration: none;
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 700;
       cursor: pointer;
-      transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      opacity: 0;
-      transform: translateX(-20px);
-      animation: btnSlideIn 0.5s forwards;
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transform: translateZ(0);
     }
-
-    .btn:nth-child(1) { animation-delay: 0.2s; }
-    .btn:nth-child(2) { animation-delay: 0.3s; }
-    .btn:nth-child(3) { animation-delay: 0.4s; }
-    .btn:nth-child(4) { animation-delay: 0.5s; }
 
     .btn:hover {
       background: rgba(255, 255, 255, 0.15);
       border-color: #fff;
-      transform: scale(1.02) translateX(5px);
-      box-shadow: 0 0 20px rgba(255,255,255,0.1);
+      transform: translateX(8px);
     }
 
-    /* Bouton appel avec pulsation */
-    .btn-call-action {
+    .btn:active { transform: scale(0.97); }
+
+    .btn-call {
       background: #fff !important;
       color: #000 !important;
-      animation: pulse 2s infinite !important;
-      animation-delay: 1s !important;
+      box-shadow: 0 0 30px rgba(255,255,255,0.2);
     }
 
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
-      70% { box-shadow: 0 0 0 15px rgba(255, 255, 255, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+    /* DROITE : CONTENU */
+    .right-panel {
+      flex: 1.2;
+      border-left: 1px solid var(--border);
+      padding-left: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 350px;
     }
 
-    @keyframes btnSlideIn { to { opacity: 1; transform: translateX(0); } }
-    @keyframes containerAppear { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+    .info-box { display: none; animation: slideIn 0.6s cubic-bezier(0.165, 0.84, 0.44, 1); }
+    .info-box.active { display: block; }
 
-    /* MOBILE */
+    .info-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 26px;
+      margin-bottom: 25px;
+      background: linear-gradient(to right, #fff, #999);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .info-desc { font-size: 16px; line-height: 1.9; opacity: 0.75; margin-bottom: 40px; }
+
+    .cta-main {
+      display: inline-block;
+      padding: 18px 45px;
+      background: #fff;
+      color: #000;
+      border-radius: 15px;
+      font-weight: 900;
+      text-decoration: none;
+      transition: 0.4s;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ANIMATIONS */
+    @keyframes reveal { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes slideIn { from { opacity: 0; transform: translateX(20px); filter: blur(10px); } to { opacity: 1; transform: translateX(0); filter: blur(0); } }
+
+    /* RESPONSIVE SMARTPHONE (LE PLUS IMPORTANT) */
     @media (max-width: 768px) {
-      .container { flex-direction: column; text-align: center; }
-      .right-panel { border-left: none; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
-      .logo-main { margin: 0 auto; }
+      body { overflow-y: auto; align-items: flex-start; }
+      .container { 
+        flex-direction: column; 
+        padding: 40px 25px; 
+        margin: 20px 0;
+        border-radius: 35px;
+        gap: 30px;
+      }
+      .right-panel { 
+        border-left: none; 
+        border-top: 1px solid var(--border); 
+        padding: 35px 0 0 0; 
+        text-align: center;
+        min-height: auto;
+      }
+      .left-panel { text-align: center; }
+      .logo-main { margin: 0 auto; width: 210px; }
+      .btn:hover { transform: none; } /* Désactive le décalage sur mobile pour éviter les bugs */
     }
   </style>
 </head>
-<body>
-  <div class="bg-image"></div>
+<body onmousemove="parallax(event)">
+
+  <div class="bg-image" id="bg"></div>
+
   <div class="container">
     <div class="left-panel">
-      <img src="logo-texte.png" class="logo-main" alt="SERRUTECH">
+      <div>
+        <img src="logo-texte.png" class="logo-main" alt="Serrutech">
+        <p class="tagline">Artisan Serrurier</p>
+      </div>
+      
       <div class="nav-links">
-        <div class="btn btn-call-action active" onclick="openTab('call')">Appeler maintenant</div>
-        <div class="btn" onclick="openTab('email')">Envoyer un Email</div>
-        <div class="btn" onclick="openTab('site')">Notre Site Web</div>
-        <a href="https://www.instagram.com/serrutech" target="_blank" class="btn">Instagram</a>
+        <div class="btn btn-call" onclick="openTab('call')">Urgence 24/7 <span>📞</span></div>
+        <div class="btn" onclick="openTab('vcard')">Ajouter le contact <span>👤</span></div>
+        <div class="btn" onclick="openTab('site')">Notre Site Web <span>🌐</span></div>
+        <a href="https://instagram.com/serrutech" target="_blank" class="btn">Instagram <span>📸</span></a>
       </div>
     </div>
-    <div class="right-panel" id="content-box">
-        </div>
+
+    <div class="right-panel">
+      <div id="call" class="info-box active">
+        <h2 class="info-title">URGENCE 66</h2>
+        <p class="info-desc">Dépannage immédiat pour toutes vos serrures. Intervention rapide et tarifs garantis avant travaux.</p>
+        <a href="tel:+33782795833" class="cta-main">Appeler le technicien</a>
+      </div>
+
+      <div id="vcard" class="info-box">
+        <h2 class="info-title">SAUVEGARDER</h2>
+        <p class="info-desc">Enregistrez nos coordonnées pour nous avoir sous la main lors de votre prochaine urgence.</p>
+        <a href="#" class="cta-main">Ajouter au répertoire</a>
+      </div>
+
+      <div id="site" class="info-box">
+        <h2 class="info-title">WEB PRO</h2>
+        <p class="info-desc">Notre nouveau site est en cours de déploiement. Profitez d'une interface de devis en ligne très bientôt.</p>
+        <button onclick="openTab('call')" class="cta-main" style="border:none; cursor:pointer;">Contact Direct</button>
+      </div>
+    </div>
   </div>
+
+  <script>
+    function openTab(id) {
+      document.querySelectorAll('.info-box').forEach(b => b.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    function parallax(e) {
+      if (window.innerWidth > 768) {
+        let x = (window.innerWidth / 2 - e.pageX) / 45;
+        let y = (window.innerHeight / 2 - e.pageY) / 45;
+        document.getElementById('bg').style.transform = `translate(${x}px, ${y}px)`;
+      }
+    }
+
+    // Effet parallaxe mobile via inclinaison (Gyromètre)
+    if (window.DeviceOrientationEvent) {
+      window.addEventListener('deviceorientation', function(e) {
+        if (window.innerWidth <= 768) {
+          let x = e.gamma / 2; // Inclinaison gauche/droite
+          let y = e.beta / 2;  // Inclinaison avant/arrière
+          document.getElementById('bg').style.transform = `translate(${x}px, ${y}px)`;
+        }
+      });
+    }
+  </script>
+
 </body>
 </html>
