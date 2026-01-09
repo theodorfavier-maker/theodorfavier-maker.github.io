@@ -85,6 +85,7 @@
 
     .btn:active { transform: scale(0.97); }
 
+    /* Bouton Appeler maintenant en blanc */
     .btn-call { background: #fff !important; color: #000 !important; }
 
     .right-panel {
@@ -145,7 +146,8 @@
       </div>
       
       <div class="nav-links">
-        <div class="btn btn-call" onclick="openTab('call')">Appeler maintenant <span>📞</span></div>
+        <div class="btn btn-call" onclick="makeCall()">Appeler maintenant <span>📞</span></div>
+        
         <div class="btn" onclick="openTab('vcard')">Enregistrer le contact <span>👤</span></div>
         <div class="btn" onclick="openTab('site')">Notre Site Web <span>🌐</span></div>
         <a href="https://instagram.com/serrutech" target="_blank" class="btn">Instagram <span>📸</span></a>
@@ -168,18 +170,24 @@
       <div id="site" class="info-box">
         <h2 class="info-title">SITE WEB</h2>
         <p class="info-desc">Notre nouvelle page est en préparation. Pour toute demande, merci de nous contacter par téléphone.</p>
-        <div class="cta-main" onclick="openTab('call')">Contact Direct</div>
+        <div class="cta-main" onclick="makeCall()">Contact Direct</div>
       </div>
     </div>
   </div>
 
   <script>
+    // Fonction pour changer d'onglet
     function openTab(id) {
       document.querySelectorAll('.info-box').forEach(b => b.classList.remove('active'));
       document.getElementById(id).classList.add('active');
     }
 
-    // FONCTION VCARD COMPATIBLE IPHONE
+    // NOUVELLE FONCTION : Lance l'appel ET change l'onglet
+    function makeCall() {
+      openTab('call'); // On montre l'onglet Urgence à droite
+      window.location.href = "tel:+33782795833"; // On lance l'appel
+    }
+
     function downloadVCard() {
       const vcardData = [
         "BEGIN:VCARD",
