@@ -26,16 +26,16 @@
       overflow: hidden;
     }
 
-    /* LOGO EN FOND : Effet Immersion */
+    /* LOGO EN FOND D'ÉCRAN */
     .bg-image {
       position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 140%; /* Un peu plus grand pour remplir l'espace */
+      width: 140%;
       height: auto;
       opacity: 0.25;
-      filter: blur(8px) grayscale(1); /* Flou plus doux et noir & blanc */
+      filter: blur(8px) grayscale(1);
       z-index: -1;
       pointer-events: none;
     }
@@ -44,7 +44,7 @@
       width: 90%;
       max-width: 380px;
       text-align: center;
-      padding: 40px 25px;
+      padding: 45px 25px;
       background: var(--glass);
       backdrop-filter: blur(25px);
       -webkit-backdrop-filter: blur(25px);
@@ -69,7 +69,6 @@
       color: rgba(255,255,255,0.4);
     }
 
-    /* BOUTONS MODERNES */
     .btn {
       display: flex;
       align-items: center;
@@ -87,7 +86,6 @@
       background: var(--glass);
     }
 
-    /* BOUTON D'APPEL : Le seul en plein pour attirer l'oeil */
     .btn-main {
       background: var(--primary);
       color: #000;
@@ -117,16 +115,16 @@
       opacity: 0.2;
     }
 
-    /* Bouton retour discret */
     .back-btn {
-      margin-top: 25px;
+      margin-top: 30px;
       background: none;
       border: none;
-      color: rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.4);
       font-family: 'Orbitron', sans-serif;
       font-size: 10px;
       cursor: pointer;
       text-decoration: underline;
+      letter-spacing: 1px;
     }
   </style>
 </head>
@@ -146,13 +144,17 @@
   </div>
 
   <div id="maint-view" class="container">
-    <div style="font-size: 40px; margin-bottom: 20px;">⚙️</div>
-    <h2 style="font-family:'Orbitron'; font-size: 18px; margin-bottom:15px; letter-spacing: 2px;">MAINTENANCE</h2>
-    <p style="font-size:14px; opacity:0.6; line-height: 1.6; margin-bottom:35px;">
-      Notre plateforme est en cours d'optimisation pour le 66.<br>Besoin d'aide maintenant ?
+    <div style="font-size: 40px; margin-bottom: 20px;">🛠️</div>
+    <h2 style="font-family:'Orbitron'; font-size: 18px; margin-bottom:15px; letter-spacing: 2px;">SITE EN TRAVAUX</h2>
+    
+    <p style="font-size:14px; opacity:0.7; line-height: 1.7; margin-bottom:35px; padding: 0 5px;">
+      Nous faisons évoluer notre plateforme numérique pour mieux vous accompagner dans vos dépannages sur tout le <strong>66</strong>.<br><br>
+      Notre service d'intervention reste <strong>ouvert et disponible</strong> immédiatement par téléphone.
     </p>
+
     <a href="tel:+33782795833" class="btn btn-main">Appeler maintenant</a>
-    <button onclick="toggle(false)" class="back-btn">RETOUR AU MENU</button>
+    
+    <button onclick="toggle(false)" class="back-btn">RETOUR AU MENU PRINCIPAL</button>
   </div>
 
   <script>
