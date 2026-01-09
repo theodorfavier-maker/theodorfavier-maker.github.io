@@ -4,190 +4,98 @@
   <meta charset="UTF-8">
   <title>SERRUTECH | 66</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --accent: #ffffff; }
+    * { box-sizing: border-box; -webkit-font-smoothing: antialiased; margin: 0; padding: 0; }
     
     body {
-      min-height: 100vh;
-      background: #000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Inter', sans-serif;
-      color: white;
-      padding: 15px;
-      overflow-x: hidden;
-    }
-
-    /* IMAGE DE FOND (Reflet métal) */
-    .bg-image {
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: url('fond.png') no-repeat center center; /* Corrigé en .png */
-      background-size: cover;
-      opacity: 0.4;
-      filter: grayscale(1);
-      z-index: -1;
+      min-height: 100vh; background: #050505;
+      background-image: radial-gradient(circle at 50% -20%, #222226 0%, #050505 80%);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Inter', sans-serif; color: var(--accent); padding: 20px;
     }
 
     .container {
-      width: 100%;
-      max-width: 850px;
-      background: rgba(10, 10, 12, 0.95);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      width: 100%; max-width: 350px; /* Réduit de 380px à 350px */
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 35px;
-      padding: 40px;
-      display: flex;
-      flex-direction: row;
-      gap: 30px;
-      box-shadow: 0 50px 100px rgba(0,0,0,0.9);
+      border-radius: 35px; padding: 35px 25px;
+      text-align: center; box-shadow: 0 40px 80px rgba(0,0,0,0.8);
     }
 
-    /* GAUCHE : LOGO ET BOUTONS */
-    .left-panel { flex: 1; text-align: left; }
+    /* LOGO : Taille Pro ajustée */
+    .logo-wrap {
+      width: 90%; /* Un peu plus petit pour laisser de l'air */
+      margin: 0 auto 5px auto;
+    }
     
-    .logo-main {
-      width: 220px;
-      height: auto;
-      margin-bottom: 15px;
-      display: block;
-      /* TRANSFORME TON LOGO NOIR EN BLANC */
-      filter: brightness(0) invert(1); 
+    .logo-img { 
+      width: 100%; 
+      height: auto; 
+      filter: invert(1) brightness(2); 
+      display: block; 
     }
 
     .tagline {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 10px;
-      letter-spacing: 5px;
-      text-transform: uppercase;
-      opacity: 0.5;
-      margin-bottom: 30px;
+      font-family: 'Orbitron', sans-serif; font-weight: 900;
+      font-size: 9px; letter-spacing: 5px; text-transform: uppercase;
+      opacity: 0.4; margin-bottom: 35px;
     }
-
-    .nav-links { display: flex; flex-direction: column; gap: 10px; }
 
     .btn {
-      padding: 18px 20px;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 15px;
-      color: white;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.3s;
-      text-align: left;
+      display: flex; align-items: center; justify-content: center;
+      width: 100%; padding: 16px; margin: 10px 0;
+      border-radius: 16px; font-weight: 700; font-size: 14px;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: all 0.2s ease;
     }
 
-    .btn:hover, .btn.active {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.6);
-    }
+    .btn-white { background: #ffffff; color: #000000; }
+    .btn-dark { background: rgba(255,255,255,0.06); color: #ffffff; border: 1px solid rgba(255,255,255,0.1); }
+    .btn:hover { transform: translateY(-2px); filter: brightness(0.9); }
 
-    /* DROITE : INFORMATIONS */
-    .right-panel {
-      flex: 1.2;
-      border-left: 1px solid rgba(255, 255, 255, 0.1);
-      padding-left: 40px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
+    #maintenance-view { display: none; }
+    .m-title { font-family: 'Orbitron', sans-serif; font-size: 16px; letter-spacing: 2px; margin-bottom: 15px; }
 
-    .info-content { display: none; animation: fadeIn 0.4s ease; }
-    .info-content.active { display: block; }
-
-    .info-title {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 18px;
-      letter-spacing: 2px;
-      margin-bottom: 20px;
-      color: #fff;
-      text-transform: uppercase;
-    }
-
-    .info-desc {
-      font-size: 15px;
-      line-height: 1.8;
-      opacity: 0.7;
-      margin-bottom: 30px;
-    }
-
-    .action-btn {
-      display: inline-block;
-      padding: 15px 35px;
-      background: #fff;
-      color: #000;
-      text-decoration: none;
-      border-radius: 12px;
-      font-weight: 800;
-      font-size: 14px;
-      text-transform: uppercase;
-      text-align: center;
-    }
-
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
-
-    /* MOBILE : TOUT RECENTRÉ */
-    @media (max-width: 768px) {
-      .container { flex-direction: column; padding: 30px 20px; max-width: 400px; text-align: center; }
-      .left-panel { text-align: center; }
-      .logo-main { margin: 0 auto 10px auto; width: 190px; }
-      .right-panel { border-left: none; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-left: 0; padding-top: 30px; }
-      .btn { text-align: center; }
-      .info-title { text-align: center; }
-    }
+    .footer { margin-top: 25px; font-family: 'Orbitron', sans-serif; font-size: 8px; letter-spacing: 3px; opacity: 0.15; }
   </style>
 </head>
 <body>
 
-  <div class="bg-image"></div>
-
-  <div class="container">
-    <div class="left-panel">
-      <img src="logo-texte.png" class="logo-main" alt="SERRUTECH">
-      <div class="tagline">Artisan Serrurier</div>
-      
-      <div class="nav-links">
-        <div class="btn active" onclick="openTab('call')">Appeler maintenant</div>
-        <div class="btn" onclick="openTab('email')">Envoyer un Email</div>
-        <div class="btn" onclick="openTab('site')">Notre Site Web</div>
-        <a href="https://www.instagram.com/serrutech" target="_blank" class="btn">Instagram</a>
-      </div>
+  <div id="menu-view" class="container">
+    <div class="logo-wrap">
+        <img src="logo.png" alt="SERRUTECH" class="logo-img">
     </div>
+    <div class="tagline">Artisan Serrurier</div>
 
-    <div class="right-panel">
-      <div id="call" class="info-content active">
-        <h3 class="info-title">📞 DISPONIBILITÉ</h3>
-        <p class="info-desc">Urgence ou rendez-vous ? Nous intervenons sur tout le <strong>66</strong>. Service garanti <strong>24h/24 et 7j/7</strong>.</p>
-        <a href="tel:+33782795833" class="action-btn">Lancer l'appel</a>
-      </div>
+    <a href="tel:+33782795833" class="btn btn-white">Appeler maintenant</a>
+    <a href="mailto:theodor.favier@icloud.com" class="btn btn-dark">Envoyer un Email</a>
+    <button onclick="showM(true)" class="btn btn-dark">Notre Site Web</button>
+    <a href="https://www.instagram.com/serrutech" target="_blank" class="btn btn-dark">Instagram</a>
 
-      <div id="email" class="info-content">
-        <h3 class="info-title">📧 CONTACT MAIL</h3>
-        <p class="info-desc">Une question ou un devis ? Contactez-nous par email. Nous traitons votre demande en moins de <strong>2 heures</strong>.</p>
-        <a href="mailto:theodor.favier@icloud.com" class="action-btn">Écrire un Email</a>
-      </div>
+    <div class="footer">© 2026 SERRUTECH</div>
+  </div>
 
-      <div id="site" class="info-content">
-        <h3 class="info-title">🛠️ SITE EN TRAVAUX</h3>
-        <p class="info-desc">Notre plateforme web est en cours de création. Toutes nos interventions restent disponibles par téléphone ou email.</p>
-        <button onclick="openTab('call')" class="action-btn" style="border:none; cursor:pointer;">Nous appeler</button>
-      </div>
-    </div>
+  <div id="maintenance-view" class="container">
+    <h2 class="m-title">MAINTENANCE</h2>
+    <p style="opacity: 0.7; font-size: 13px; line-height: 1.6; margin-bottom: 25px;">
+      Notre site web est en cours de mise à jour.<br><br>
+      Besoin d'un serrurier ?
+    </p>
+    
+    <a href="tel:+33782795833" class="btn btn-white">Appeler maintenant</a>
+    
+    <button onclick="showM(false)" style="background:none; border:none; color:rgba(255,255,255,0.4); text-decoration:underline; font-size: 10px; cursor: pointer; margin-top: 20px; font-family:'Orbitron';">RETOUR</button>
   </div>
 
   <script>
-    function openTab(id) {
-      document.querySelectorAll('.info-content').forEach(el => el.classList.remove('active'));
-      document.querySelectorAll('.btn').forEach(el => el.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-      event.currentTarget.classList.add('active');
+    function showM(isM) {
+      document.getElementById('menu-view').style.display = isM ? 'none' : 'block';
+      document.getElementById('maintenance-view').style.display = isM ? 'block' : 'none';
     }
   </script>
+
 </body>
 </html>
