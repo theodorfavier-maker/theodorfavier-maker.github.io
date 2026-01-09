@@ -84,10 +84,9 @@
     }
 
     .btn:active { transform: scale(0.97); }
-
-    /* Bouton Appeler maintenant en blanc */
     .btn-call { background: #fff !important; color: #000 !important; }
 
+    /* PANNEAU DROIT - AJUSTÉ POUR LE CENTRAGE */
     .right-panel {
       flex: 1.2;
       border-left: 1px solid var(--border);
@@ -95,10 +94,12 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: center; /* Centre horizontalement le contenu */
+      text-align: center;   /* Centre le texte */
       min-height: 320px;
     }
 
-    .info-box { display: none; animation: fadeIn 0.4s forwards; }
+    .info-box { width: 100%; display: none; animation: fadeIn 0.4s forwards; }
     .info-box.active { display: block; }
 
     .info-title {
@@ -106,9 +107,18 @@
       font-size: 24px;
       margin-bottom: 20px;
       letter-spacing: 1px;
+      width: 100%;
     }
 
-    .info-desc { font-size: 16px; line-height: 1.8; opacity: 0.8; margin-bottom: 35px; }
+    .info-desc { 
+      font-size: 16px; 
+      line-height: 1.8; 
+      opacity: 0.8; 
+      margin-bottom: 35px;
+      max-width: 400px; /* Évite que le texte soit trop large sur PC */
+      margin-left: auto;
+      margin-right: auto;
+    }
 
     .cta-main {
       display: inline-block;
@@ -120,15 +130,22 @@
       text-decoration: none;
       text-transform: uppercase;
       cursor: pointer;
-      text-align: center;
+      min-width: 200px;
     }
 
-    @keyframes fadeIn { from { opacity: 0; transform: translateX(10px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
+    /* VERSION MOBILE */
     @media (max-width: 768px) {
       body { overflow-y: auto; align-items: flex-start; }
       .container { flex-direction: column; padding: 35px 20px; margin-top: 20px; }
-      .right-panel { border-left: none; border-top: 1px solid var(--border); padding-top: 30px; text-align: center; min-height: auto; }
+      .right-panel { 
+        border-left: none; 
+        border-top: 1px solid var(--border); 
+        padding: 30px 0 0 0; 
+        min-height: auto;
+        align-items: center;
+      }
       .left-panel { text-align: center; }
       .logo-main { margin: 0 auto; width: 200px; }
     }
@@ -147,7 +164,6 @@
       
       <div class="nav-links">
         <div class="btn btn-call" onclick="makeCall()">Appeler maintenant <span>📞</span></div>
-        
         <div class="btn" onclick="openTab('vcard')">Enregistrer le contact <span>👤</span></div>
         <div class="btn" onclick="openTab('site')">Notre Site Web <span>🌐</span></div>
         <a href="https://instagram.com/serrutech" target="_blank" class="btn">Instagram <span>📸</span></a>
@@ -176,16 +192,14 @@
   </div>
 
   <script>
-    // Fonction pour changer d'onglet
     function openTab(id) {
       document.querySelectorAll('.info-box').forEach(b => b.classList.remove('active'));
       document.getElementById(id).classList.add('active');
     }
 
-    // NOUVELLE FONCTION : Lance l'appel ET change l'onglet
     function makeCall() {
-      openTab('call'); // On montre l'onglet Urgence à droite
-      window.location.href = "tel:+33782795833"; // On lance l'appel
+      openTab('call');
+      window.location.href = "tel:+33782795833";
     }
 
     function downloadVCard() {
