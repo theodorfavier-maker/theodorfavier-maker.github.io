@@ -2,98 +2,129 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>SERRUTECH | 66</title>
+  <title>SERRUTECH | Linktree</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    :root { --accent: #ffffff; }
-    * { box-sizing: border-box; -webkit-font-smoothing: antialiased; margin: 0; padding: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     
     body {
-      min-height: 100vh; background: #050505;
-      background-image: radial-gradient(circle at 50% -20%, #222226 0%, #050505 80%);
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Inter', sans-serif; color: var(--accent); padding: 20px;
+      min-height: 100vh;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Inter', sans-serif;
+      overflow: hidden;
+    }
+
+    /* L'IMAGE DE FOND (TON LOGO) */
+    .bg-logo {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 120%; /* Plus large pour l'effet immersif */
+      height: auto;
+      opacity: 0.4; /* Transparence pour ne pas gêner la lecture */
+      filter: blur(5px); /* Flou artistique pour le style moderne */
+      z-index: -1;
     }
 
     .container {
-      width: 100%; max-width: 350px; /* Réduit de 380px à 350px */
-      background: rgba(255, 255, 255, 0.04);
-      backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 35px; padding: 35px 25px;
-      text-align: center; box-shadow: 0 40px 80px rgba(0,0,0,0.8);
+      width: 100%;
+      max-width: 360px;
+      padding: 30px;
+      text-align: center;
+      z-index: 10;
     }
 
-    /* LOGO : Taille Pro ajustée */
-    .logo-wrap {
-      width: 90%; /* Un peu plus petit pour laisser de l'air */
-      margin: 0 auto 5px auto;
-    }
-    
-    .logo-img { 
-      width: 100%; 
-      height: auto; 
-      filter: invert(1) brightness(2); 
-      display: block; 
+    .info-header {
+      margin-bottom: 40px;
     }
 
     .tagline {
-      font-family: 'Orbitron', sans-serif; font-weight: 900;
-      font-size: 9px; letter-spacing: 5px; text-transform: uppercase;
-      opacity: 0.4; margin-bottom: 35px;
+      font-family: 'Orbitron', sans-serif;
+      color: #fff;
+      font-size: 12px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      text-shadow: 0 0 10px rgba(255,255,255,0.5);
     }
 
+    /* BOUTONS EPURÉS */
     .btn {
-      display: flex; align-items: center; justify-content: center;
-      width: 100%; padding: 16px; margin: 10px 0;
-      border-radius: 16px; font-weight: 700; font-size: 14px;
-      text-decoration: none; border: none; cursor: pointer;
-      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 18px;
+      margin: 15px 0;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      transition: all 0.3s ease;
     }
 
-    .btn-white { background: #ffffff; color: #000000; }
-    .btn-dark { background: rgba(255,255,255,0.06); color: #ffffff; border: 1px solid rgba(255,255,255,0.1); }
-    .btn:hover { transform: translateY(-2px); filter: brightness(0.9); }
+    .btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: scale(1.02);
+    }
+
+    /* Bouton d'appel qui ressort légèrement */
+    .btn-call {
+      background: #fff;
+      color: #000;
+      border: none;
+    }
 
     #maintenance-view { display: none; }
-    .m-title { font-family: 'Orbitron', sans-serif; font-size: 16px; letter-spacing: 2px; margin-bottom: 15px; }
 
-    .footer { margin-top: 25px; font-family: 'Orbitron', sans-serif; font-size: 8px; letter-spacing: 3px; opacity: 0.15; }
+    .footer {
+      margin-top: 50px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 9px;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 2px;
+    }
   </style>
 </head>
 <body>
 
-  <div id="menu-view" class="container">
-    <div class="logo-wrap">
-        <img src="logo.png" alt="SERRUTECH" class="logo-img">
-    </div>
-    <div class="tagline">Artisan Serrurier</div>
+  <img src="logo.png" class="bg-logo" alt="">
 
-    <a href="tel:+33782795833" class="btn btn-white">Appeler maintenant</a>
-    <a href="mailto:theodor.favier@icloud.com" class="btn btn-dark">Envoyer un Email</a>
-    <button onclick="showM(true)" class="btn btn-dark">Notre Site Web</button>
-    <a href="https://www.instagram.com/serrutech" target="_blank" class="btn btn-dark">Instagram</a>
+  <div id="main-view" class="container">
+    <div class="info-header">
+      <div class="tagline">Artisan Serrurier</div>
+    </div>
+
+    <a href="tel:+33782795833" class="btn btn-call">Appeler maintenant</a>
+    <a href="mailto:theodor.favier@icloud.com" class="btn">Envoyer un Email</a>
+    <button onclick="toggle(true)" class="btn">Notre Site Web</button>
+    <a href="https://www.instagram.com/serrutech" target="_blank" class="btn">Instagram</a>
 
     <div class="footer">© 2026 SERRUTECH</div>
   </div>
 
   <div id="maintenance-view" class="container">
-    <h2 class="m-title">MAINTENANCE</h2>
-    <p style="opacity: 0.7; font-size: 13px; line-height: 1.6; margin-bottom: 25px;">
-      Notre site web est en cours de mise à jour.<br><br>
-      Besoin d'un serrurier ?
+    <h2 style="color:#fff; font-family:'Orbitron'; font-size:18px; margin-bottom:20px;">MAINTENANCE</h2>
+    <p style="color:rgba(255,255,255,0.6); font-size:14px; margin-bottom:30px; line-height:1.6;">
+      Nouveau site en préparation.<br>Besoin d'un dépannage immédiat ?
     </p>
-    
-    <a href="tel:+33782795833" class="btn btn-white">Appeler maintenant</a>
-    
-    <button onclick="showM(false)" style="background:none; border:none; color:rgba(255,255,255,0.4); text-decoration:underline; font-size: 10px; cursor: pointer; margin-top: 20px; font-family:'Orbitron';">RETOUR</button>
+    <a href="tel:+33782795833" class="btn btn-call">Appeler maintenant</a>
+    <button onclick="toggle(false)" style="background:none; border:none; color:rgba(255,255,255,0.4); text-decoration:underline; cursor:pointer; margin-top:20px; font-size:12px;">Retour</button>
   </div>
 
   <script>
-    function showM(isM) {
-      document.getElementById('menu-view').style.display = isM ? 'none' : 'block';
-      document.getElementById('maintenance-view').style.display = isM ? 'block' : 'none';
+    function toggle(showMaint) {
+      document.getElementById('main-view').style.display = showMaint ? 'none' : 'block';
+      document.getElementById('maintenance-view').style.display = showMaint ? 'block' : 'none';
     }
   </script>
 
