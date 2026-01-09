@@ -25,7 +25,7 @@
       overflow-x: hidden;
     }
 
-    /* FOND NOIR AVEC IMAGE SUBTILE */
+    /* IMAGE DE FOND (Reflet métal) */
     .bg-image {
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
@@ -39,11 +39,11 @@
     .container {
       width: 100%;
       max-width: 850px;
-      background: rgba(10, 10, 12, 0.9);
+      background: rgba(10, 10, 12, 0.95);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border: 1px solid var(--border);
-      border-radius: 30px;
+      border-radius: 35px;
       padding: 40px;
       display: flex;
       flex-direction: row;
@@ -51,15 +51,16 @@
       box-shadow: 0 50px 100px rgba(0,0,0,0.9);
     }
 
-    /* GAUCHE : NAVIGATION */
+    /* GAUCHE : LOGO ET BOUTONS */
     .left-panel { flex: 1; text-align: left; }
     
+    /* FIX LOGO : Nom du fichier mis à jour */
     .logo-main {
-      width: 200px;
+      width: 220px;
       height: auto;
       margin-bottom: 15px;
       display: block;
-      /* Ce filtre force l'image en blanc si elle était noire */
+      /* Force le logo en blanc brillant pour le design noir */
       filter: brightness(0) invert(1); 
     }
 
@@ -68,7 +69,7 @@
       font-size: 10px;
       letter-spacing: 5px;
       text-transform: uppercase;
-      opacity: 0.4;
+      opacity: 0.5;
       margin-bottom: 30px;
     }
 
@@ -90,10 +91,10 @@
 
     .btn:hover, .btn.active {
       background: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.5);
+      border-color: rgba(255, 255, 255, 0.6);
     }
 
-    /* DROITE : CONTENU */
+    /* DROITE : INFORMATIONS */
     .right-panel {
       flex: 1.2;
       border-left: 1px solid var(--border);
@@ -112,6 +113,7 @@
       letter-spacing: 2px;
       margin-bottom: 20px;
       color: #fff;
+      text-transform: uppercase;
     }
 
     .info-desc {
@@ -131,27 +133,30 @@
       font-weight: 800;
       font-size: 14px;
       text-transform: uppercase;
+      text-align: center;
     }
 
     @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* RESPONSIVE MOBILE : TOUT RECENTRÉ ET DROIT */
+    /* --- RESPONSIVE MOBILE : TOUT BIEN ALIGNÉ --- */
     @media (max-width: 768px) {
       .container {
         flex-direction: column;
         padding: 30px 20px;
         max-width: 400px;
+        text-align: center;
       }
       .left-panel { text-align: center; }
-      .logo-main { margin: 0 auto 10px auto; width: 180px; }
+      /* Le logo s'appelle bien fond-texte.png maintenant */
+      .logo-main { margin: 0 auto 10px auto; width: 190px; }
       .right-panel {
         border-left: none;
         border-top: 1px solid var(--border);
         padding-left: 0;
         padding-top: 30px;
-        text-align: center;
       }
       .btn { text-align: center; }
+      .info-title { text-align: center; }
     }
   </style>
 </head>
@@ -161,7 +166,7 @@
 
   <div class="container">
     <div class="left-panel">
-      <img src="logo-blanc.png" class="logo-main" alt="SERRUTECH">
+      <img src="fond-texte.png" class="logo-main" alt="SERRUTECH">
       <div class="tagline">Artisan Serrurier</div>
       
       <div class="nav-links">
@@ -174,20 +179,20 @@
 
     <div class="right-panel">
       <div id="call" class="info-content active">
-        <h3 class="info-title">DISPONIBILITÉ</h3>
+        <h3 class="info-title">📞 DISPONIBILITÉ</h3>
         <p class="info-desc">Urgence ou rendez-vous ? Nous intervenons sur tout le <strong>66</strong>. Service garanti <strong>24h/24 et 7j/7</strong>.</p>
         <a href="tel:+33782795833" class="action-btn">Lancer l'appel</a>
       </div>
 
       <div id="email" class="info-content">
-        <h3 class="info-title">CONTACT MAIL</h3>
+        <h3 class="info-title">📧 CONTACT MAIL</h3>
         <p class="info-desc">Une question ou un devis ? Contactez-nous par email. Nous traitons votre demande en moins de <strong>2 heures</strong>.</p>
         <a href="mailto:theodor.favier@icloud.com" class="action-btn">Écrire un Email</a>
       </div>
 
       <div id="site" class="info-content">
-        <h3 class="info-title">MAINTENANCE</h3>
-        <p class="info-desc">Notre plateforme web est en cours de création. Toutes nos interventions restent disponibles par téléphone.</p>
+        <h3 class="info-title">🛠️ SITE EN TRAVAUX</h3>
+        <p class="info-desc">Notre plateforme web est en cours de création pour le 66. Toutes nos interventions restent disponibles par téléphone.</p>
         <button onclick="openTab('call')" class="action-btn" style="border:none; cursor:pointer;">Nous appeler</button>
       </div>
     </div>
